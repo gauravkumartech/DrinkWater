@@ -1,0 +1,33 @@
+.form_field{
+    margin-bottom: 15px;
+}
+
+input[type="text"],input[type="email"],textarea,select {
+    background: transparent;
+    padding: 12px 4px;
+    font-size: 14px;
+    border-radius: 0;
+    width: 100%;
+    -webkit-appearance: none;
+    border-bottom: 1px solid #000;
+}
+
+textarea{
+    height: 140px;
+    resize: none;
+}
+
+// input:focus,input:active,input:hover,textarea:focus,textarea:active,textarea:hover{
+//     border: 1px solid $color-primary;
+// }
+
+
+input::placeholder{
+    color: #000;
+}
+
+
+
+button{
+    outline: 0 !important;
+}

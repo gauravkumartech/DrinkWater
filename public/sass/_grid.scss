@@ -1,0 +1,48 @@
+
+.custom_container{
+    max-width:$container;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+.flex_row{
+    display: flex;
+    margin: 0 -10px;
+    flex-flow: wrap;
+}
+
+[class^="flex_col_"]{
+    padding: 0 10px;
+}
+.flex_col_sm_12{
+    width: 100%;
+}
+.flex_col_sm_6{
+    width: 50%;
+    @media(max-width:766px){
+        width: 100%;
+       }  
+}
+.flex_col_sm_2 {
+    width: 20%;
+}
+
+.flex_col_sm_8 {
+    width: 66.3%;
+}
+.flex_col_sm_10 {
+    width: 80%;
+}
+
+.flex_col_sm_4{
+    width: 33.3%;  
+    @media(max-width:766px){
+     width: 100%;
+    }  
+}
+.flex_col_sm_3{
+    width: 25%;
+    @media(max-width:766px){
+        width: 100%;
+       }  
+}

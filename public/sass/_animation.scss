@@ -1,0 +1,50 @@
+/*--------------------btn effect--------------------------*/
+.btn_effect{
+    position: relative;
+    overflow: hidden;
+    &:before,&:after{
+        width: 0%;
+        content: "";
+        background: #ffffff30;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition:         all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    &:before {
+        right: 50%;
+    }
+    &:after {
+        left: 50%;
+    }
+    &:hover{
+        &:before, &:after{ 
+            width: 50%;
+            opacity: 1;
+        }
+    }
+}
+/*--------------------btn effect close--------------------------*/
+
+
+.link {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: #000;
+        -webkit-transition: all ease .4s;
+        transition: all ease .4s;
+    }
+    &:hover{
+        &:after {
+            width: 100%;
+        }
+    }
+}
