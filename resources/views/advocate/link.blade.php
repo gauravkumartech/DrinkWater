@@ -12,7 +12,40 @@
 </head>
 <body>  
 
-    <main class="app_wrapper waterbg">
+    <main class="app_wrapper waterbg splash">
+        <div class="custom_container">
+
+           <div class="welcome_wrapper text-center">
+            <div class="tagline_wrap">
+                <div class="tagline">
+                    <span>Drink Water</span>
+                    <span> Stay Strong.</span>
+                </div>
+                <figure class="logo"><img src="{{asset('images/logowater.png')}}"  alt="Logo"/></figure>
+            </div>  
+                <a type="button" class="splash_link">Enter</a>
+           </div>
+
+        </div>
+    </main>
+
+
+    <main class="app_wrapper waterbg welcome" style="display: none;">
+        <div class="custom_container">
+
+           <div class="welcome_wrapper text-center">
+              
+               <p class="welcome_note"> WELCOME TO  YOUR PATH TO DAILY  HYDRATION + WELLNESS</p> 
+
+                <h1>STAY STRONG.</h1>
+
+                <a type="button" class="welcome_link">Enter</a>
+           </div>
+        </div>
+    </main>
+
+
+    <main class="app_wrapper waterbg main_content" style="display: none;">
         <div class="custom_container">
 
             <div class="head_section"> 
@@ -106,7 +139,7 @@
                         </div>
 
                         <div class="dots_wrapper">
-                            <button class="outline_btn m_r_20" onclick="history.back()">Back</button>
+                            <button type="button" class="outline_btn m_r_20 main_content_back">Back</button>
                             <button type="submit" class="primary_btn btn_effect">Next</button>
                         </div>
                 </div>
@@ -119,6 +152,42 @@
 
 <script>  
     $(document).ready (function () {  
+
+        setTimeout(function(){
+            $('.splash').hide();
+            $('.welcome').show();
+        },2000);
+
+        setTimeout(function(){
+            $('.splash').hide();
+            $('.welcome').hide();
+            $('.main_content').show();
+        },4000);
+
+        $('.splash_link').click(function(){
+            $('.splash').hide();
+            $('.welcome').show();
+            $('.main_content').hide();
+        });
+
+        $('.welcome_link').click(function(){
+            $('.splash').hide();
+            $('.welcome').hide();
+            $('.main_content').show();
+        });
+
+        $('.main_content_back').click(function(){
+            $('.splash').hide();
+            $('.welcome').show();
+            $('.main_content').hide();
+
+            setTimeout(function(){
+                $('.splash').hide();
+                $('.welcome').hide();
+                $('.main_content').show();
+            },2000);
+        });
+
         $("#basic-form").validate({
             rules: {  
                 first_name: {

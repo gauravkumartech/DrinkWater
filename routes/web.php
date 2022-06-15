@@ -13,17 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('splash');
-})->name('splash');
+// Route::get('/', function () {
+//     return view('splash');
+// })->name('splash');
 
-Route::get('/welcome', function () {
-    return view('drinkWaterWelcome');
-})->name('welcome');
+// Route::get('/welcome', function () {
+//     return view('drinkWaterWelcome');
+// })->name('welcome');
 
 
-Route::get('/link', function () {
-    return view('advocate/link');
-})->name('link');
+// Route::get('/link', function () {
+//     return view('advocate/link');
+// })->name('link');
 
 Route::match(['get','post'],'/wateradvocate/{detail_access_token}', 'App\Http\Controllers\Advocate\AdvocateController@getDetail');
