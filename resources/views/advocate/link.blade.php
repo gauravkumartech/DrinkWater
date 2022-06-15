@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenny Raphael</title>
+
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}" />
     <input type="hidden" value="{{url('/')}}" class="base_url">
-    <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="{{asset('js/jquery_validation.js')}}"></script>
+    
 </head>
 <body>  
 
@@ -29,7 +32,6 @@
         </div>
     </main>
 
-
     <main class="app_wrapper waterbg welcome" style="display: none;">
         <div class="custom_container">
 
@@ -44,111 +46,248 @@
         </div>
     </main>
 
-
     <main class="app_wrapper waterbg main_content" style="display: none;">
         <div class="custom_container">
 
-            <div class="head_section"> 
-                <div class="brand">
-                    <figure class="logo"><img src="{{asset('images/logowater.png')}}"  alt="Logo"/></figure>
-                    <span class="brand_txt">+ {{$advocateData->adv_first_name}} {{$advocateData->adv_last_name}}</span>
-                </div>
-                <div class="tagline_wrap">
-                    <div class="tagline">
-                        <span>Drink Water</span>
-                        <span> Stay Strong.</span>
-                    </div>
-                    <p>Your Path to daily hydration & wellness</p>
-                </div>
-            </div>
-
-            <form id = "basic-form" action="" method="post">
+            <form id="basic-form">
                 @csrf
 
-                <input type="hidden" value="{{Request::segment(2)}}" name="adv_detail_access_token" class="adv_detail_access_token">
+                <div class="step1_form">
+                    <div class="head_section"> 
+                        <div class="brand">
+                            <figure class="logo"><img src="{{asset('images/logowater.png')}}"  alt="Logo"/></figure>
+                            <span class="brand_txt">+ {{$advocateData->adv_first_name}} {{$advocateData->adv_last_name}}</span>
+                        </div>
+                        <div class="tagline_wrap">
+                            <div class="tagline">
+                                <span>Drink Water</span>
+                                <span> Stay Strong.</span>
+                            </div>
+                            <p>Your Path to daily hydration & wellness</p>
+                        </div>
+                    </div>
 
-                <div class="form_wrapper">
-                        <div class="flex_row">
-                            <div class="flex_col_sm_6">
-                                <div class="form_field">
-                                    <div class="text-field">
-                                    <input type="text" name="first_name" id="first_name" placeholder="First Name">
+
+                    <input type="hidden" value="{{Request::segment(2)}}" name="adv_detail_access_token" class="adv_detail_access_token">
+
+                    <div class="form_wrapper">
+                            <div class="flex_row">
+                                <div class="flex_col_sm_6">
+                                    <div class="form_field">
+                                        <div class="text-field">
+                                        <input type="text" value="86876855858" name="first_name" id="first_name" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex_col_sm_6">
+                                    <div class="form_field">
+                                        <div class="text-field">
+                                        <input type="text" value="86876855858" name="last_name" id="last_name" placeholder="Last Name">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex_col_sm_6">
-                                <div class="form_field">
-                                    <div class="text-field">
-                                    <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+
+                            <div class="flex_row">
+                                <div class="flex_col_sm_6">
+                                    <div class="form_field">
+                                        <div class="text-field">
+                                        <input type="text" value="86876855858" name="mobile" id="mobile" number placeholder="Mobile #">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex_col_sm_6">
+                                    <div class="form_field">
+                                        <div class="text-field">
+                                        <input type="text" value="gaurav@gmail.cpm" name="email" id="email" placeholder="Email">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="flex_row">
-                            <div class="flex_col_sm_6">
-                                <div class="form_field">
-                                    <div class="text-field">
-                                    <input type="text" name="mobile" id="mobile" number placeholder="Mobile #">
-                                    </div>
+                            <div class="flex_row">
+                                
+                                <div class="flex_col_sm_6">
+                                    <div class="form_field">
+                                        <div class="text-field">
+                                            <select class="selectpicker" name="package" id="package" required>
+                                                <option value="">Select Package</option>
+                                                <option value="1" selected>1 MONTH OF HYDRATION $250</option>
+                                                <option value="2">2 MONTH OF HYDRATION $500</option>
+                                                <option value="3">3 MONTH OF HYDRATION $750</option>
+                                            </select>
+
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="flex_col_sm_6">
+                                    <div class="form_field">
+                                        <div class="text-field">
+                                            <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
+                                                <option value="">Delivery frequency</option>
+                                                <option value="1" selected>EVERY SUNDAY</option>
+                                                <option value="2">EVERY MONDAY</option>
+                                            </select>
+                                        </div>
+                                    </div> 
                                 </div>
                             </div>
-                            <div class="flex_col_sm_6">
-                                <div class="form_field">
-                                    <div class="text-field">
-                                    <input type="text" name="email" id="email" placeholder="Email">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="flex_row">
-                            
-                            <div class="flex_col_sm_6">
-                                <div class="form_field">
-                                    <div class="text-field">
-                                        <select name="package" id="package" required>
-                                            <option value="">Select Package</option>
-                                            <option value="1">1 MONTH OF HYDRATION $250</option>
-                                            <option value="2">2 MONTH OF HYDRATION $500</option>
-                                            <option value="3">3 MONTH OF HYDRATION $750</option>
-                                        </select>
-                                    </div>
-                                </div> 
+                            <div class="dots_wrapper">
+                                    <ul>
+                                        <li class="active"></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
                             </div>
-                            <div class="flex_col_sm_6">
-                                <div class="form_field">
-                                    <div class="text-field">
-                                        <select name="delivery_frequency" id="delivery_frequency" required>
-                                            <option value="">Delivery frequency</option>
-                                            <option value="1">EVERY SUNDAY</option>
-                                            <option value="2">EVERY MONDAY</option>
-                                        </select>
-                                    </div>
-                                </div> 
+
+                            <div class="dots_wrapper">
+                                <button type="button" class="outline_btn m_r_20 main_content_back">Back</button>
+                                <button type="submit" class="primary_btn btn_effect">Next</button>
                             </div>
-                        </div>
-
-                        <div class="dots_wrapper">
-                                <ul>
-                                    <li class="active"></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                        </div>
-
-                        <div class="dots_wrapper">
-                            <button type="button" class="outline_btn m_r_20 main_content_back">Back</button>
-                            <button type="submit" class="primary_btn btn_effect">Next</button>
-                        </div>
+                    </div>
                 </div>
+
+
+                <div class="step2_form" style="display: none;">
+                    <main class="app_wrapper waterbg">
+                        <div class="custom_container">
+                    
+                            <div class="head_section"> 
+                                <div class="brand">
+                                    <figure class="logo"><img src="{{asset('images/logowater.png')}}"  alt="Logo"/></figure>
+                                    <span class="brand_txt">+ {{$advocateData->adv_first_name}} {{$advocateData->adv_last_name}}</span>
+                                </div>
+                                <div class="tagline_wrap">
+                                    <p>Your Path to daily hydration & wellness</p>
+                                </div>
+                            </div>
+                
+                            <div class="form_wrapper">
+                                <div class="flex_row">
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <input type="text" name="billing_address" id="billing_address" placeholder="BILLING ADDRESS1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <input type="text" name="shipping_address" id="shipping_address" placeholder="SHIPPING ADDRESS1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex_row">
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <input type="text" name="billing_address2" id="billing_address2" placeholder="BILLING ADDRESS2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <input type="text" name="shipping_address2" id="shipping_address2" placeholder="SHIPPING ADDRESS2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex_row">
+
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <input type="text" name="city" id="city" placeholder="CITY">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <input type="text" name="state_zip" id="state_zip" placeholder="STATE/ZIP">
+                                            </div>
+                                        </div>
+                                        <input type="radio" class="hide" id="billing" />
+                                        <label class="" for="billing">(SAME AS BILLING ADDRESS)</label>
+                                    </div>
+                                    
+                                </div>
+                            
+                                <div class="flex_row m_t_50">
+                                    
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <select class="selectpicker custom_select" name="package" id="package" required>
+                                                <option value="">Select Package</option>
+                                                <option value="1" selected>1 MONTH OF HYDRATION $250</option>
+                                                <option value="2">2 MONTH OF HYDRATION $500</option>
+                                                <option value="3">3 MONTH OF HYDRATION $750</option>
+                                            </select>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field custom_select">
+                                                <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
+                                                <option value="">Delivery frequency</option>
+                                                <option value="1" selected>EVERY SUNDAY</option>
+                                                <option value="2">EVERY MONDAY</option>
+                                            </select>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+
+                                <div class="dots_wrapper">
+                                    <ul>
+                                        <li></li>
+                                        <li class="active"></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+
+                                <div class="dots_wrapper">
+                                    <button type="button" class="outline_btn m_r_20 show_step1_form">Back</button>
+                                    <button type="submit" class="primary_btn">Next</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <footer class="text-center">
+                            <div class="custom_container">
+                                ALL RIGHT RESERVED 2022 &copy WATR, LLC. | PRIVACY + LEGAL
+                            </div>
+                        </footer>
+
+                    </main>
+                </div>
+
             </form>
         </div>
     </main>
     
 </body>
 </html>
+
+<script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{asset('js/jquery_validation.js')}}"></script>
+<script src="{{asset('js/aos.js')}}"></script>
+<script src="{{asset('js/popper.min.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/bootstrap-select.js')}}"></script>
+<script src="{{asset('js/custom.js')}}"></script>
 
 <script>  
     $(document).ready (function () {  
@@ -188,6 +327,12 @@
             },2000);
         });
 
+        $(document).on('click', '.show_step1_form', function(event) {
+            console.log('show_step1_form');
+            $('.step2_form').hide(true);
+            $('.step1_form').show(true);
+        });
+
         $("#basic-form").validate({
             rules: {  
                 first_name: {
@@ -217,6 +362,30 @@
                 },
 
                 delivery_frequency: {  
+                    required: true,  
+                },
+
+                billing_address: {
+                    required: true,  
+                },
+
+                shipping_address: {
+                    required: true,  
+                },
+
+                billing_address2: {
+                    required: true,  
+                },
+
+                shipping_address2: {
+                    required: true,  
+                },
+
+                city: {
+                    required: true,  
+                },
+
+                state_zip: {
                     required: true,  
                 },
             },  
@@ -249,10 +418,14 @@
             }, 
             
             submitHandler: function(form) {  
-                form.submit();  
+                $('.step1_form').hide();
+                $('.step2_form').show();
+                // form.submit();  
             }  
         });  
     }); 
+
+    
 </script>  
 
 
