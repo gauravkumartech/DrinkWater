@@ -597,24 +597,26 @@
 <script>  
     $(document).ready (function () {  
 
-        setTimeout(function(){
+        let time1 = setTimeout(function(){
             $('.splash').hide();
             $('.welcome').show();
         },2000);
 
-        setTimeout(function(){
+        let time2 = setTimeout(function(){
             $('.splash').hide();
             $('.welcome').hide();
             $('.main_content').show();
         },4000);
 
         $('.splash_link').click(function(){
+            clearTimeout(time1);
             $('.splash').hide();
             $('.welcome').show();
             $('.main_content').hide();
         });
 
         $('.welcome_link').click(function(){
+            clearTimeout(time2);
             $('.splash').hide();
             $('.welcome').hide();
             $('.main_content').show();
