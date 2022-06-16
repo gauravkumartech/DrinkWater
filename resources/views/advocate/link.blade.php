@@ -76,14 +76,14 @@
                                 <div class="flex_col_sm_6">
                                     <div class="form_field">
                                         <div class="text-field">
-                                        <input type="text" value="86876855858" name="first_name" id="first_name" placeholder="First Name">
+                                        <input type="text"  name="first_name" id="first_name" placeholder="First Name">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="flex_col_sm_6">
                                     <div class="form_field">
                                         <div class="text-field">
-                                        <input type="text" value="86876855858" name="last_name" id="last_name" placeholder="Last Name">
+                                        <input type="text"  name="last_name" id="last_name" placeholder="Last Name">
                                         </div>
                                     </div>
                                 </div>
@@ -93,14 +93,14 @@
                                 <div class="flex_col_sm_6">
                                     <div class="form_field">
                                         <div class="text-field">
-                                        <input type="text" value="86876855858" name="mobile" id="mobile" number placeholder="Mobile #">
+                                        <input type="text"  name="mobile" id="mobile" number placeholder="Mobile #">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="flex_col_sm_6">
                                     <div class="form_field">
                                         <div class="text-field">
-                                        <input type="text" value="gaurav@gmail.cpm" name="email" id="email" placeholder="Email">
+                                        <input type="text"  name="email" id="email" placeholder="Email">
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
                                         <div class="text-field">
                                             <select class="selectpicker" name="package" id="package" required>
                                                 <option value="">Select Package</option>
-                                                <option value="1" selected>1 MONTH OF HYDRATION $250</option>
+                                                <option value="1" >1 MONTH OF HYDRATION $250</option>
                                                 <option value="2">2 MONTH OF HYDRATION $500</option>
                                                 <option value="3">3 MONTH OF HYDRATION $750</option>
                                             </select>
@@ -126,7 +126,7 @@
                                         <div class="text-field">
                                             <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
                                                 <option value="">Delivery frequency</option>
-                                                <option value="1" selected>EVERY SUNDAY</option>
+                                                <option value="1" >EVERY SUNDAY</option>
                                                 <option value="2">EVERY MONDAY</option>
                                             </select>
                                         </div>
@@ -170,42 +170,42 @@
                                     <div class="flex_col_sm_6">
                                         <div class="form_field">
                                             <div class="text-field">
-                                            <input type="text" value="testing address testing" name="billing_address" id="billing_address" placeholder="BILLING ADDRESS1">
+                                            <input type="text"  name="billing_address" id="billing_address" placeholder="BILLING ADDRESS1">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="flex_col_sm_6">
                                         <div class="form_field">
                                             <div class="text-field">
-                                            <input type="text" value="testing address testing" name="shipping_address" id="shipping_address" placeholder="SHIPPING ADDRESS1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="flex_row">
-                                    <div class="flex_col_sm_6">
-                                        <div class="form_field">
-                                            <div class="text-field">
-                                            <input type="text" value="testing address testing" name="billing_address2" id="billing_address2" placeholder="BILLING ADDRESS2">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex_col_sm_6">
-                                        <div class="form_field">
-                                            <div class="text-field">
-                                            <input type="text" value="testing address testing" name="shipping_address2" id="shipping_address2" placeholder="SHIPPING ADDRESS2">
+                                            <input type="text"  name="shipping_address" id="shipping_address" placeholder="SHIPPING ADDRESS1">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="flex_row">
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <input type="text"  name="billing_address2" id="billing_address2" placeholder="BILLING ADDRESS2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex_col_sm_6">
+                                        <div class="form_field">
+                                            <div class="text-field">
+                                            <input type="text"  name="shipping_address2" id="shipping_address2" placeholder="SHIPPING ADDRESS2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex_row">
 
                                     <div class="flex_col_sm_6">
                                         <div class="form_field">
                                             <div class="text-field">
-                                            <input type="text" value="city" name="city" id="city" placeholder="CITY">
+                                            <input type="text"  name="city" id="city" placeholder="CITY">
                                             </div>
                                         </div>
                                     </div>
@@ -213,10 +213,10 @@
                                     <div class="flex_col_sm_6">
                                         <div class="form_field">
                                             <div class="text-field">
-                                            <input type="text" value="state" name="state_zip" id="state_zip" placeholder="STATE/ZIP">
+                                            <input type="text"  name="state_zip" id="state_zip" placeholder="STATE/ZIP">
                                             </div>
                                         </div>
-                                        <input type="radio" value="city" name="same_billing_address" class="hide" id="billing" />
+                                        <input type="radio"  name="same_billing_address" class="hide" id="billing" />
                                         <label class="" for="billing">(SAME AS BILLING ADDRESS)</label>
                                     </div>
                                     
@@ -229,7 +229,7 @@
                                             <div class="text-field">
                                             <select class="selectpicker custom_select" name="package" id="package" required>
                                                 <option value="">Select Package</option>
-                                                <option value="1" selected>1 MONTH OF HYDRATION $250</option>
+                                                <option value="1" >1 MONTH OF HYDRATION $250</option>
                                                 <option value="2">2 MONTH OF HYDRATION $500</option>
                                                 <option value="3">3 MONTH OF HYDRATION $750</option>
                                             </select>
@@ -241,7 +241,7 @@
                                             <div class="text-field custom_select">
                                                 <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
                                                     <option value="">Delivery frequency</option>
-                                                    <option value="1" selected>EVERY SUNDAY</option>
+                                                    <option value="1" >EVERY SUNDAY</option>
                                                     <option value="2">EVERY MONDAY</option>
                                                 </select>
                                             </div>
@@ -300,7 +300,7 @@
                                             <div class="text-field custom_select">
                                                 <select class="selectpicker payment_method" name="payment_method" id="payment_method">
                                                     <option>SELECT PAYMENT METHOD</option>
-                                                    <option value="1" selected>CREDIT CARD</option>
+                                                    <option value="1" >CREDIT CARD</option>
                                                     <option value="1">DEBIT CARD</option>
                                                     <option value="1">VENMO </option>
                                                     <option value="1">APPLY PAY </option>
@@ -353,7 +353,7 @@
                                                 <div class="text-field">
                                                     <select class="selectpicker custom_select" name="package" id="package" required>
                                                         <option value="">Select Package</option>
-                                                        <option value="1" selected>1 MONTH OF HYDRATION $250</option>
+                                                        <option value="1" >1 MONTH OF HYDRATION $250</option>
                                                         <option value="2">2 MONTH OF HYDRATION $500</option>
                                                         <option value="3">3 MONTH OF HYDRATION $750</option>
                                                     </select>
@@ -365,7 +365,7 @@
                                                 <div class="text-field custom_select">
                                                     <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
                                                         <option value="">Delivery frequency</option>
-                                                        <option value="1" selected>EVERY SUNDAY</option>
+                                                        <option value="1" >EVERY SUNDAY</option>
                                                         <option value="2">EVERY MONDAY</option>
                                                     </select>
                                                 </div>
@@ -420,7 +420,7 @@
                                         <div class="text-field custom_select">
                                             <select class="selectpicker payment_method" name="payment_method" id="payment_method">
                                                 <option>SELECT PAYMENT METHOD</option>
-                                                <option value="1" selected>CREDIT CARD</option>
+                                                <option value="1" >CREDIT CARD</option>
                                                 <option value="1">DEBIT CARD</option>
                                                 <option value="1">VENMO </option>
                                                 <option value="1">APPLY PAY </option>
@@ -435,7 +435,7 @@
                                         <div class="text-field">
                                             <select class="selectpicker custom_select" name="package" id="package" required>
                                                 <option value="">Select Package</option>
-                                                <option value="1" selected>1 MONTH OF HYDRATION $250</option>
+                                                <option value="1" >1 MONTH OF HYDRATION $250</option>
                                                 <option value="2">2 MONTH OF HYDRATION $500</option>
                                                 <option value="3">3 MONTH OF HYDRATION $750</option>
                                             </select>
@@ -447,7 +447,7 @@
                                         <div class="text-field custom_select">
                                             <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
                                                 <option value="">Delivery frequency</option>
-                                                <option value="1" selected>EVERY SUNDAY</option>
+                                                <option value="1" >EVERY SUNDAY</option>
                                                 <option value="2">EVERY MONDAY</option>
                                             </select>
                                         </div>
