@@ -16,7 +16,7 @@
         <div class="custom_container">
 
            <div class="welcome_wrapper text-center">
-            <div class="tagline_wrap">
+            <div class="tagline_wrap" data-aos="zoom-in-up" data-aos-duration="1500">
                 <div class="tagline">
                     <span>Drink Water</span>
                     <span> Stay Strong.</span>
