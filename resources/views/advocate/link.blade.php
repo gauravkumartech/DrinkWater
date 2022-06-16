@@ -299,6 +299,7 @@
                                         <div class="form_field">
                                             <div class="text-field custom_select">
                                                 <select class="selectpicker payment_method" name="payment_method" id="payment_method">
+    <script src="{{asset('js/constants.js')}}"></script>
                                                     <option>SELECT PAYMENT METHOD</option>
                                                     <option value="1" >CREDIT CARD</option>
                                                     <option value="1">DEBIT CARD</option>
@@ -587,6 +588,7 @@
 </html>
 
 <script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{asset('js/constants.js')}}"></script>
 <script src="{{asset('js/jquery_validation.js')}}"></script>
 <script src="{{asset('js/aos.js')}}"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
@@ -595,18 +597,18 @@
 <script src="{{asset('js/custom.js')}}"></script>
 
 <script>  
-    $(document).ready (function () {  
 
+$(document).ready (function () {  
         let time1 = setTimeout(function(){
             $('.splash').hide();
             $('.welcome').show();
-        },2000);
+        },string.timeout);
 
         let time2 = setTimeout(function(){
             $('.splash').hide();
             $('.welcome').hide();
             $('.main_content').show();
-        },4000);
+        },string.timeout1);
 
         $('.splash_link').click(function(){
             clearTimeout(time1);
@@ -631,7 +633,7 @@
                 $('.splash').hide();
                 $('.welcome').hide();
                 $('.main_content').show();
-            },2000);
+            },string.timeout);
         });
 
         $(document).on('click', '.show_step1_form', function(event) {
