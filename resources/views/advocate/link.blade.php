@@ -111,7 +111,7 @@
                                 <div class="flex_col_sm_6">
                                     <div class="form_field">
                                         <div class="text-field">
-                                            <select class="selectpicker" name="package" id="package" required>
+                                            <select class="selectpicker" name="package" id="package1" required>
                                                 <option value="">Select Package</option>
                                                 <option value="1" >1 MONTH OF HYDRATION $250</option>
                                                 <option value="2">2 MONTH OF HYDRATION $500</option>
@@ -124,7 +124,7 @@
                                 <div class="flex_col_sm_6">
                                     <div class="form_field">
                                         <div class="text-field">
-                                            <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
+                                            <select class="selectpicker" name="delivery_frequency" id="delivery_frequency1" required>
                                                 <option value="">Delivery frequency</option>
                                                 <option value="1" >EVERY SUNDAY</option>
                                                 <option value="2">EVERY MONDAY</option>
@@ -205,7 +205,7 @@
                                     <div class="flex_col_sm_6">
                                         <div class="form_field">
                                             <div class="text-field">
-                                            <input type="text"  name="city" id="city" placeholder="CITY">
+                                            <input type="text"  name="b_city_state_zip" id="b_city_state_zip" placeholder="CITY/STATE/ZIP">
                                             </div>
                                         </div>
                                     </div>
@@ -213,10 +213,10 @@
                                     <div class="flex_col_sm_6">
                                         <div class="form_field">
                                             <div class="text-field">
-                                            <input type="text"  name="state_zip" id="state_zip" placeholder="STATE/ZIP">
+                                            <input type="text"  name="s_city_state_zip" id="s_city_state_zip" placeholder="CITY/STATE/ZIP">
                                             </div>
                                         </div>
-                                        <input type="radio"  name="same_billing_address" class="hide" id="billing" />
+                                        <input type="radio"  name="same_billing_address" class="hide same_billing_address" id="billing" />
                                         <label class="" for="billing">(SAME AS BILLING ADDRESS)</label>
                                     </div>
                                     
@@ -227,7 +227,7 @@
                                     <div class="flex_col_sm_6">
                                         <div class="form_field">
                                             <div class="text-field">
-                                            <select class="selectpicker custom_select" name="package" id="package" required>
+                                            <select class="selectpicker custom_select" name="package" id="package2" required>
                                                 <option value="">Select Package</option>
                                                 <option value="1" >1 MONTH OF HYDRATION $250</option>
                                                 <option value="2">2 MONTH OF HYDRATION $500</option>
@@ -239,7 +239,7 @@
                                     <div class="flex_col_sm_6">
                                         <div class="form_field">
                                             <div class="text-field custom_select">
-                                                <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
+                                                <select class="selectpicker" name="delivery_frequency" id="delivery_frequency2" required>
                                                     <option value="">Delivery frequency</option>
                                                     <option value="1" >EVERY SUNDAY</option>
                                                     <option value="2">EVERY MONDAY</option>
@@ -299,12 +299,11 @@
                                         <div class="form_field">
                                             <div class="text-field custom_select">
                                                 <select class="selectpicker payment_method" name="payment_method" id="payment_method">
-    <script src="{{asset('js/constants.js')}}"></script>
                                                     <option>SELECT PAYMENT METHOD</option>
                                                     <option value="1" >CREDIT CARD</option>
-                                                    <option value="1">DEBIT CARD</option>
-                                                    <option value="1">VENMO </option>
-                                                    <option value="1">APPLY PAY </option>
+                                                    <option value="2">DEBIT CARD</option>
+                                                    <option value="3">VENMO </option>
+                                                    <option value="4">APPLY PAY </option>
                                                 </select>
                                             </div>
                                         </div>  
@@ -352,7 +351,7 @@
                                         <div class="flex_col_sm_6">
                                             <div class="form_field">
                                                 <div class="text-field">
-                                                    <select class="selectpicker custom_select" name="package" id="package" required>
+                                                    <select class="selectpicker custom_select" name="package" id="package3" required>
                                                         <option value="">Select Package</option>
                                                         <option value="1" >1 MONTH OF HYDRATION $250</option>
                                                         <option value="2">2 MONTH OF HYDRATION $500</option>
@@ -364,7 +363,7 @@
                                         <div class="flex_col_sm_6">
                                             <div class="form_field">
                                                 <div class="text-field custom_select">
-                                                    <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
+                                                    <select class="selectpicker" name="delivery_frequency" id="delivery_frequency3" required>
                                                         <option value="">Delivery frequency</option>
                                                         <option value="1" >EVERY SUNDAY</option>
                                                         <option value="2">EVERY MONDAY</option>
@@ -422,9 +421,9 @@
                                             <select class="selectpicker payment_method" name="payment_method" id="payment_method">
                                                 <option>SELECT PAYMENT METHOD</option>
                                                 <option value="1" >CREDIT CARD</option>
-                                                <option value="1">DEBIT CARD</option>
-                                                <option value="1">VENMO </option>
-                                                <option value="1">APPLY PAY </option>
+                                                <option value="2">DEBIT CARD</option>
+                                                <option value="3">VENMO </option>
+                                                <option value="4">APPLY PAY </option>
                                             </select>
                                         </div>
                                     </div>
@@ -434,7 +433,7 @@
                                     <div class="flex_col_sm_6">
                                     <div class="form_field">
                                         <div class="text-field">
-                                            <select class="selectpicker custom_select" name="package" id="package" required>
+                                            <select class="selectpicker custom_select" name="package" id="package4" required>
                                                 <option value="">Select Package</option>
                                                 <option value="1" >1 MONTH OF HYDRATION $250</option>
                                                 <option value="2">2 MONTH OF HYDRATION $500</option>
@@ -446,7 +445,7 @@
                                     <div class="flex_col_sm_6">
                                     <div class="form_field">
                                         <div class="text-field custom_select">
-                                            <select class="selectpicker" name="delivery_frequency" id="delivery_frequency" required>
+                                            <select class="selectpicker" name="delivery_frequency" id="delivery_frequency4" required>
                                                 <option value="">Delivery frequency</option>
                                                 <option value="1" >EVERY SUNDAY</option>
                                                 <option value="2">EVERY MONDAY</option>
@@ -595,221 +594,7 @@
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap-select.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
-
-<script>  
-
-$(document).ready (function () {  
-        let time1 = setTimeout(function(){
-            $('.splash').hide();
-            $('.welcome').show();
-        },string.timeout);
-
-        let time2 = setTimeout(function(){
-            $('.splash').hide();
-            $('.welcome').hide();
-            $('.main_content').show();
-        },string.timeout1);
-
-        $('.splash_link').click(function(){
-            clearTimeout(time1);
-            $('.splash').hide();
-            $('.welcome').show();
-            $('.main_content').hide();
-        });
-
-        $('.welcome_link').click(function(){
-            clearTimeout(time2);
-            $('.splash').hide();
-            $('.welcome').hide();
-            $('.main_content').show();
-        });
-
-        $('.main_content_back').click(function(){
-            $('.splash').hide();
-            $('.welcome').show();
-            $('.main_content').hide();
-
-            setTimeout(function(){
-                $('.splash').hide();
-                $('.welcome').hide();
-                $('.main_content').show();
-            },string.timeout);
-        });
-
-        $(document).on('click', '.show_step1_form', function(event) {
-            console.log('show_step1_form');
-            $('.step2_form').hide(true);
-            $('.step3_form').hide(true);
-            $('.step4_form').hide(true);
-            $('.step1_form').show(true);
-            $('.current_tab').val('step1_form');
-        });
-
-        $(document).on('click', '.show_step2_form', function(event) {
-            console.log('show_step2_form');
-            $('.step1_form').hide(true);
-            $('.step3_form').hide(true);
-            $('.step4_form').hide(true);
-            $('.step2_form').show(true);
-            $('.current_tab').val('step2_form');
-        });
-
-        $(document).on('click', '.show_step3_form', function(event) {
-            console.log('show_step3_form');
-            if( $('#basic-form').valid() ){
-                $('.step1_form').hide(true);
-                $('.step2_form').hide(true);
-                $('.step4_form').hide(true);
-                $('.step3_form').show(true);
-                $('.current_tab').val('step3_form');
-            }
-        });
-
-        $(document).on('click', '.show_step4_form', function(event) {
-            console.log('show_step4_form');
-
-            if( $('#basic-form').valid() ){
-                $('.step1_form').hide(true);
-                $('.step2_form').hide(true);
-                $('.step2_form').hide();
-                $('.step3_form').hide(true);
-                $('.step4_form').show(true);
-                $('.current_tab').val('step4_form');
-            }
-        });
-
-        $(document).on('click', '.show_final_form', function(event) {
-            console.log('show_final_form');
-            if( $('#basic-form').valid() ){
-                $('.step1_form').hide(true);
-                $('.step2_form').hide(true);
-                $('.step3_form').hide(true);
-                $('.step4_form').hide(true);
-                $('.final_form').show(true);
-                $('.current_tab').val('final_form');
-            }
-        });
-
-        $("#basic-form").validate({
-            rules: {  
-                first_name: {
-                    required: true,  
-                    minlength: 3,
-                    maxlength: 15,  
-                },
-                last_name: {
-                    required: true,  
-                    minlength: 3,
-                    maxlength: 15,  
-                },
-                mobile: {  
-                    required: true,  
-                    minlength: 8,
-                    maxlength: 15,
-                    number: true,  
-                },
-                email: {  
-                    required: true,  
-                    email: true,
-                    maxlength: 30,
-                },
-                
-                package: {  
-                    required: true,  
-                },
-
-                delivery_frequency: {  
-                    required: true,  
-                },
-
-                billing_address: {
-                    required: true,  
-                },
-
-                shipping_address: {
-                    required: true,  
-                },
-
-                billing_address2: {
-                    required: true,  
-                },
-
-                shipping_address2: {
-                    required: true,  
-                },
-
-                city: {
-                    required: true,  
-                },
-
-                state_zip: {
-                    required: true,  
-                },
-
-                payment_method: {
-                    required: true,  
-                },
-
-                name_on_card: {
-                    required: true,  
-                },
-
-                card_number: {
-                    required: true,  
-                },
-
-                card_cvv: {
-                    required: true,  
-                },
-
-                card_expiry: {
-                    required: true,  
-                },
-            },  
-
-            messages: {  
-                first_name: {  
-                    minlength: 'First name must be at least 8 characters long',  
-                    maxlength: 'First name must be at least 15 characters long',  
-                },
-                last_name: {  
-                    minlength: 'Last name must be at least 8 characters long',  
-                    maxlength: 'Last name must be at least 15 characters long',  
-                },
-                email: {
-                    required: 'Email is required',  
-                    email: 'Enter a valid email',  
-                },
-                mobile: {  
-                    minlength: 'Mobile must be at least 8 characters long',  
-                    maxlength: 'Mobile must be at least 15 characters long',  
-                },
-                
-                package: {
-                    required: 'Package is required',  
-                },
-
-                delivery_frequency: {
-                    required: 'Delivery frequency is required',  
-                },
-            }, 
-            
-            submitHandler: function(form) {  
-                let current_tab = $('.current_tab').val();
-                console.log( current_tab );
-
-                if(current_tab == 'step1_form')
-                {
-                    $('.step1_form').hide();
-                    $('.step2_form').show();
-                    $('.current_tab').val('step2_form');
-                }
-            }  
-        });  
-    }); 
-
-</script>  
-
+<script src="{{asset('js/link.js')}}"></script>
 
 <style>
 

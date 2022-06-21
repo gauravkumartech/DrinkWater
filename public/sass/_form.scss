@@ -1,6 +1,9 @@
 .form_field{
     margin-bottom: 15px;
 }
+.text-field{
+    position: relative;
+}
 
 input[type="text"],input[type="email"],textarea,select {
     background: transparent;

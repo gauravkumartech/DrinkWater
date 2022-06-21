@@ -26,5 +26,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('advocate/link');
 // })->name('link');
 
+Route::match(['get'],'/braintree', 'App\Http\Controllers\BrainTreeController@view');
+Route::match(['post'],'/braintree', 'App\Http\Controllers\BrainTreeController@call');
 Route::match(['get'],'/wateradvocate/{detail_access_token}', 'App\Http\Controllers\Advocate\AdvocateController@getDetail');
 Route::match(['post'],'/wateradvocate/{detail_access_token}', 'App\Http\Controllers\Advocate\AdvocateController@getDetail');
