@@ -55,7 +55,7 @@
         @csrf
         <input type="hidden" class="current_tab" value="step1_form">
 
-        <div class="step1_form" style="display: none;">
+        <div class="step1_form">
           <div class="head_section">
             <div class="brand">
               <figure class="logo"><img src="{{asset('images/logowater.png')}}" alt="Logo" /></figure>
@@ -115,7 +115,7 @@
                   <div class="text-field">
                     <select class="selectpicker" name="package" id="package1" required>
                       <option value="">Select Package</option>
-                      <option value="1" selected>1 MONTH OF HYDRATION $250</option>
+                      <option value="1">1 MONTH OF HYDRATION $250</option>
                       <option value="2">2 MONTH OF HYDRATION $500</option>
                       <option value="3">3 MONTH OF HYDRATION $750</option>
                     </select>
@@ -128,7 +128,7 @@
                   <div class="text-field">
                     <select class="selectpicker" name="delivery_frequency" id="delivery_frequency1" required>
                       <option value="">Delivery frequency</option>
-                      <option value="1" selected>EVERY SUNDAY</option>
+                      <option value="1">EVERY SUNDAY</option>
                       <option value="2">EVERY MONDAY</option>
                     </select>
                   </div>
@@ -152,7 +152,7 @@
           </div>
         </div>
 
-
+        <!-- Address -->
         <div class="step2_form" style="display: none;">
           <main class="app_wrapper waterbg">
             <div class="custom_container">
@@ -231,7 +231,7 @@
                       <div class="text-field">
                         <select class="selectpicker custom_select" name="package" id="package2" required>
                           <option value="">Select Package</option>
-                          <option value="1" selected>1 MONTH OF HYDRATION $250</option>
+                          <option value="1">1 MONTH OF HYDRATION $250</option>
                           <option value="2">2 MONTH OF HYDRATION $500</option>
                           <option value="3">3 MONTH OF HYDRATION $750</option>
                         </select>
@@ -243,7 +243,7 @@
                       <div class="text-field custom_select">
                         <select class="selectpicker" name="delivery_frequency" id="delivery_frequency2" required>
                           <option value="">Delivery frequency</option>
-                          <option value="1" selected>EVERY SUNDAY</option>
+                          <option value="1">EVERY SUNDAY</option>
                           <option value="2">EVERY MONDAY</option>
                         </select>
                       </div>
@@ -277,6 +277,7 @@
           </main>
         </div>
 
+        <!-- Payment Type Selection -->
         <div class="step3_form" style="display: none;">
 
           <main class="app_wrapper waterbg">
@@ -359,6 +360,7 @@
           </main>
         </div>
 
+        <!-- Card Detail Filling -->
         <div class="step4_form" style="display: none;">
           <main class="app_wrapper waterbg">
             <div class="custom_container">
@@ -481,7 +483,8 @@
           </main>
         </div>
 
-        <div class="step5_form" >
+        <!-- style="display: none;" -->
+        <div class="step5_form" style="display: none;">
           <main class="app_wrapper waterbg">
             <div class="custom_container">
 
@@ -531,8 +534,8 @@
 
                     <div class="form_field">
                       <div class="text-field">
-                        <input type="text" placeholder="DELIVERY ADDRESS">
-                        <button type="button" class="edit btn_effect">SAVE</button>
+                        <input type="text" class="shipping_address_final_page" placeholder="SHIPPING ADDRESS" disabled>
+                        <button type="button" class="edit btn_effect edit_address_final_page">EDIT</button>
                       </div>
                     </div>
 
@@ -541,13 +544,13 @@
                       <div class="flex_row">
                         <div class="flex_col_sm_6">
                           <div class="text-field">
-                            <input type="text" placeholder="DELIVERY ADDRESS 1">
+                            <input type="text" class="shipping_address1_final_page" placeholder="SHIPPING ADDRESS 1" disabled>
                           </div>
                         </div>
                         <div class="flex_col_sm_6">
-                          <div class="text-field">
+                          <!-- <div class="text-field">
                             <input type="text" placeholder="">
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -556,11 +559,10 @@
                       <div class="flex_row">
                         <div class="flex_col_sm_6">
                           <div class="text-field">
-                            <input type="text" placeholder="CITY  / STATE  /  ZIP">
+                            <input type="text" class="s_city_state_zip_final_page" placeholder="CITY  / STATE  /  ZIP" disabled>
                           </div>
                         </div>
                         <div class="flex_col_sm_6">
-
                         </div>
                       </div>
                     </div>
@@ -575,9 +577,9 @@
                           <option value="4">APPLY PAY </option>
                         </select>
 
-                        <button type="button" class="edit btn_effect">Edit</button>
+                        <button type="button" class="edit btn_effect edit_payment_method_final_page">Edit</button>
                       </div>
-                      <span class="text-note">CARD ENDING IN 5777</span>
+                      <span class="text-note">CARD ENDING IN <b><span class="last_4_digit_card"></span></b></span>
                     </div>
 
 
@@ -587,7 +589,7 @@
                           <label class="form_label">TAX</label>
                         </div>
                         <div class="flex_col_sm_6 text-right">
-                          <p class="show_label">1.00</p>
+                          <p class="show_label tax_amount">1.00</p>
                         </div>
                       </div>
                       <div class="flex_row">
@@ -595,7 +597,7 @@
                           <label class="form_label">SERVICE FEE</label>
                         </div>
                         <div class="flex_col_sm_6 text-right">
-                          <p class="show_label">5.00</p>
+                          <p class="show_label service_fees">5.00</p>
                         </div>
                       </div>
                       <div class="flex_row">
@@ -603,7 +605,7 @@
                           <label class="form_label">DELIVERY FEE</label>
                         </div>
                         <div class="flex_col_sm_6 text-right">
-                          <p class="show_label">5.00</p>
+                          <p class="show_label delivery_fees">5.00</p>
                         </div>
                       </div>
                       <div class="flex_row">
@@ -611,7 +613,7 @@
                           <label class="form_label">TOTAL</label>
                         </div>
                         <div class="flex_col_sm_6 text-right">
-                          <p class="show_label">$266</p>
+                          <p class="show_label total_amount">$266</p>
                         </div>
                       </div>
                     </div>

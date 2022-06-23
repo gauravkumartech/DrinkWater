@@ -1,11 +1,12 @@
 
 
 $(document).ready(function () {
-    
+    console.log(string.package[1]);
     $('#package5').next(".dropdown-toggle").prop('disabled', true);
     $('#delivery_frequency5').next(".dropdown-toggle").prop('disabled', true);
 
-    
+    $('.payment_method').next(".dropdown-toggle").prop('disabled', true);
+
     localStorage.clear();
 
     let time1 = setTimeout(function () {
@@ -68,6 +69,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".show_step3_form", function (event) {
         console.log("show_step3_form");
+        $('.payment_method').next(".dropdown-toggle").prop('disabled', false);
         if ($("#basic-form").valid()) {
             $(".step1_form").hide(true);
             $(".step2_form").hide(true);
@@ -80,6 +82,8 @@ $(document).ready(function () {
 
     $(document).on("click", ".show_step4_form", function (event) {
         console.log("show_step4_form");
+        $('.payment_method').next(".dropdown-toggle").prop('disabled', true);
+
         if ($("#basic-form").valid()) {
             $(".step1_form").hide(true);
             $(".step2_form").hide(true);
@@ -94,7 +98,12 @@ $(document).ready(function () {
 
     $(document).on("click", ".show_step5_form", function (event) {
         console.log("show_step5_form");
-        $('#package5').prop('disabled',true);
+        $('.shipping_address_final_page').val( $('#shipping_address').val());
+        $('.shipping_address1_final_page').val( $('#shipping_address2').val());
+        $('.s_city_state_zip_final_page').val( $('#s_city_state_zip').val());
+
+        $('.last_4_digit_card').text($("#basic-form").serializeArray()[23].value.substr($("#basic-form").serializeArray()[23].value.length - 4));
+
         if ($("#basic-form").valid()) {
             $(".step1_form").hide(true);
             $(".step2_form").hide(true);
@@ -105,6 +114,19 @@ $(document).ready(function () {
             $(".current_tab").val("step5_form");
             setDropDownvalue();
         }
+
+        let package_value = localStorage.getItem('package');
+        let service_fees = ((string.package[package_value]*2)/100).toFixed(2);
+        let delivery_fees = ((string.package[package_value]*2)/100).toFixed(2);
+        let tax = ((string.package[package_value]*0.4)/100).toFixed(2);
+        let package_amount = string.package[package_value];
+        let total_amount = (parseFloat(package_amount) + parseFloat(service_fees) + parseFloat(delivery_fees) + parseFloat(tax)).toFixed(2);
+        
+        $('.service_fees').text('$' + service_fees);
+        $('.delivery_fees').text('$' + delivery_fees);
+        $('.tax_amount').text('$' + tax);
+        $('.total_amount').text('$' + total_amount);
+
     });
 
     $(document).on("click", ".show_final_form", function (event) {
@@ -155,6 +177,18 @@ $(document).ready(function () {
         let selected = $(this).children("option:selected").val();
         localStorage.setItem("package", selected);
         setDropDownvalue();
+
+        let package_value = localStorage.getItem('package');
+        let service_fees = ((string.package[package_value]*2)/100).toFixed(2);
+        let delivery_fees = ((string.package[package_value]*2)/100).toFixed(2);
+        let tax = ((string.package[package_value]*0.4)/100).toFixed(2);
+        let package_amount = string.package[package_value];
+        let total_amount = (parseFloat(package_amount) + parseFloat(service_fees) + parseFloat(delivery_fees) + parseFloat(tax)).toFixed(2);
+        
+        $('.service_fees').text('$' + service_fees);
+        $('.delivery_fees').text('$' + delivery_fees);
+        $('.tax_amount').text('$' + tax);
+        $('.total_amount').text('$' + total_amount);
     });
 
     $(document).on("change", "#delivery_frequency1", function () {
@@ -260,16 +294,19 @@ $(document).ready(function () {
             card_number: {
                 required: true,
                 number: true,
+                minlength: 10,
             },
 
             card_cvv: {
                 required: true,
                 number: true,
-                maxlength: 15,
+                maxlength: 5,
+                minlength: 3,
             },
 
             card_expiry: {
                 required: true,
+                minlength: 5,
             },
         },
 
@@ -351,4 +388,43 @@ $(document).ready(function () {
             $(this).text('Edit');
         }
     })
+
+    $('.edit_address_final_page').on('click', function(){
+        if( $(this).text() == 'Edit' ){
+            $('.shipping_address_final_page').prop('disabled',false);
+            $('.shipping_address1_final_page').prop('disabled',false);
+            $('.s_city_state_zip_final_page').prop('disabled',false);
+            $(this).text('Save');
+        }else{
+            $('.shipping_address_final_page').prop('disabled',true);
+            $('.shipping_address1_final_page').prop('disabled',true);
+            $('.s_city_state_zip_final_page').prop('disabled',true);
+            $(this).text('Edit');
+        }
+    })
+
+    $('.shipping_address_final_page').on('change', function(){
+        $("#billing_address").val($(this).val());
+    })
+
+    $('.shipping_address1_final_page').on('change', function(){
+        $("#billing_address2").val($(this).val());
+    })
+
+    $('.s_city_state_zip_final_page').on('change', function(){
+        $("#b_city_state_zip").val($(this).val());
+    })
+
+    $('.edit_payment_method_final_page').on('click', function(){
+        console.log('edit_payment_method_final_page');
+        console.log($(this).text());
+        if( $(this).text() == 'Edit' ){
+            $('.payment_method').next(".dropdown-toggle").prop('disabled', false);
+            $(this).text('Save');
+        }else{
+            $('.payment_method').next(".dropdown-toggle").prop('disabled', true);
+            $(this).text('Edit');
+        }
+    })
+    
 });
