@@ -298,6 +298,9 @@ footer {
 .form_field {
   margin-bottom: 15px; }
 
+.text-field {
+  position: relative; }
+
 input[type="text"], input[type="email"], textarea, select {
   background: transparent;
   padding: 12px 4px;
@@ -317,11 +320,14 @@ input::placeholder {
 button {
   outline: 0 !important; }
 
+@font-face {
+  font-family: europaLight;
+  src: url(../fonts/Europa-Light.woff); }
 html {
   scroll-behavior: smooth; }
 
 body {
-  font-family: europa, sans-serif;
+  font-family: europaLight !important;
   font-weight: 400;
   font-style: normal;
   scroll-behavior: smooth; }
@@ -384,6 +390,9 @@ body {
 .form_wrapper {
   max-width: 600px;
   margin: 20px auto; }
+  .form_wrapper.edit_form_wrapper {
+    max-width: 450px;
+    margin: 0 auto; }
 
 .dots_wrapper {
   text-align: center;
@@ -438,9 +447,10 @@ body {
   border-radius: 0; }
 
 .custom_select .btn-light:hover {
-  color: #212529;
-  background-color: transparent;
-  border-color: #000; }
+  background-color: transparent !important;
+  border-color: #000;
+  box-shadow: none !important;
+  outline: none !important; }
 
 .custom_select .bootstrap-select .dropdown-toggle:focus, .bootstrap-select > select.mobile-device:focus + .dropdown-toggle {
   background: transparent !important;
@@ -448,17 +458,12 @@ body {
   box-shadow: none !important; }
 
 .bootstrap-select .dropdown-menu.inner {
-  background: #000;
-  color: #fff; }
-
-.dropdown-item:focus, .dropdown-item:hover {
-  color: #16181b !important;
-  text-decoration: none;
-  background-color: #f8f9fa; }
+  background: #000 !important;
+  color: #fff !important; }
 
 .dropdown-item.active, .dropdown-item:active {
-  background-color: #fff !important;
-  color: #000 !important; }
+  background-color: #000 !important;
+  color: #fff !important; }
 
 .dropdown-toggle::after {
   background-image: url("../images/line-angle-down.svg");
@@ -474,5 +479,67 @@ body {
   height: 15px;
   background-repeat: no-repeat;
   border: none !important; }
+
+.dropdown-menu li a span.text {
+  position: relative; }
+
+.dropdown-menu li a span.text:before {
+  position: absolute;
+  content: "";
+  width: 12px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%); }
+
+.dropdown-item:focus, .dropdown-item:hover {
+  background-color: #000 !important; }
+
+.dropdown-item:focus li a span.text:before, .dropdown-item:hover li a span.text:before {
+  background-color: #fff !important; }
+
+.bootstrap-select .dropdown-menu li a:hover span.text:before {
+  background-color: #fff !important; }
+
+.edit {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  padding: 2px 15px;
+  border-radius: 25px;
+  font-size: 12px;
+  text-transform: uppercase; }
+
+.edit_form_wrapper .custom_select .btn-light {
+  padding-left: 0;
+  border-bottom: 1px solid #000; }
+
+.text-note {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 5px; }
+
+.btn_black {
+  color: #fff; }
+
+.form_label {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 !important; }
+
+.recipt_note {
+  font-size: 20px;
+  margin: 25px auto; }
+
+.show_label {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0; }
 
 /*# sourceMappingURL=style.css.map */

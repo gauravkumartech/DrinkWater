@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Advocate;
 
 use Exception;
+use Braintree\Gateway;
 use Twilio\Rest\Client;
 use App\Models\Advocate;
 use App\Mail\OrderPlaced;
@@ -19,6 +20,17 @@ class AdvocateController extends Controller
     {
         if( $request->method() == 'GET')
         {
+
+            $gateway = new Gateway([
+                'environment' => env('BRAINTREE_ENV'),
+                'merchantId' => env('BRAINTREE_MERCHANT_ID'),
+                'publicKey' => env('BRAINTREE_PUBLIC_KEY'),
+                'privateKey' => env('BRAINTREE_PRIVATE_KEY'),
+                'acceptGzipEncoding' => false,
+            ]);
+
+            $clientToken = $gateway->clientToken()->generate();
+
             $data = Advocate::where([
                 ['adv_detail_access_token',$request->detail_access_token]
             ])->first();
@@ -43,7 +55,10 @@ class AdvocateController extends Controller
                     echo "Error: " . $e->getMessage();
                 } */
         
-                return view('advocate/link', [ 'advocateData' => $data ]);
+                return view('advocate/link', [ 
+                    'advocateData' => $data,
+                    'client_token' => $clientToken 
+                ]);
                 
             }else{
                 return view('others/no_data_found');
