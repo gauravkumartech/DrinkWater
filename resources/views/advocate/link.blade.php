@@ -115,9 +115,9 @@
                   <div class="text-field">
                     <select class="selectpicker" name="package" id="package1" required>
                       <option value="">Select Package</option>
-                      <option value="1">1 MONTH OF HYDRATION $250</option>
-                      <option value="2">2 MONTH OF HYDRATION $500</option>
-                      <option value="3">3 MONTH OF HYDRATION $750</option>
+                      <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
+                      <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
+                      <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
                     </select>
 
                   </div>
@@ -231,9 +231,9 @@
                       <div class="text-field">
                         <select class="selectpicker custom_select" name="package" id="package2" required>
                           <option value="">Select Package</option>
-                          <option value="1">1 MONTH OF HYDRATION $250</option>
-                          <option value="2">2 MONTH OF HYDRATION $500</option>
-                          <option value="3">3 MONTH OF HYDRATION $750</option>
+                          <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
+                          <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
+                          <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
                         </select>
                       </div>
                     </div>
@@ -318,9 +318,9 @@
                       <div class="text-field">
                         <select class="selectpicker custom_select" name="package" id="package4" required>
                           <option value="">Select Package</option>
-                          <option value="1" selected>1 MONTH OF HYDRATION $250</option>
-                          <option value="2">2 MONTH OF HYDRATION $500</option>
-                          <option value="3">3 MONTH OF HYDRATION $750</option>
+                          <option value="1" selected>1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
+                          <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
+                          <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
                         </select>
                       </div>
                     </div>
@@ -441,9 +441,9 @@
                       <div class="text-field">
                         <select class="selectpicker custom_select" name="package" id="package3" required>
                           <option value="">Select Package</option>
-                          <option value="1">1 MONTH OF HYDRATION $250</option>
-                          <option value="2">2 MONTH OF HYDRATION $500</option>
-                          <option value="3">3 MONTH OF HYDRATION $750</option>
+                          <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
+                          <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
+                          <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
                         </select>
                       </div>
                     </div>
@@ -506,15 +506,20 @@
                   <div class="flex_col_sm_12">
                     <div class="form_field">
                       <div class="text-field">
-                        <select class="selectpicker custom_select" name="package" id="package5" required>
-                          <option value="">Select Package</option>
-                          <option value="1" selected>1 MONTH OF HYDRATION $250</option>
-                          <option value="2">2 MONTH OF HYDRATION $500</option>
-                          <option value="3">3 MONTH OF HYDRATION $750</option>
+                        <select class="selectpicker custom_select final_page_package_label">
+                          <option value="" selected>YOUR WELLNESS SOLUTION</option>
                         </select>
+
+                        <select class="selectpicker custom_select" name="package" id="package5" required>
+                          <option value="">YOUR WELLNESS SOLUTION</option>
+                          <option value="1" selected>1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
+                          <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
+                          <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
+                        </select>
+
                         <button type="button" class="edit btn_effect edit_package">Edit</button>
                       </div>
-                      <span class="text-note">EVERY SUNDAY FOR 1 MONTH </span>
+                      <span class="text-note package_note_final_page" >EVERY SUNDAY FOR 1 MONTH </span>
                       <span class="text-note">(1st DELIVERY 4 KITS, THEN 2 KITS THEREAFTER). </span>
                     </div>
 

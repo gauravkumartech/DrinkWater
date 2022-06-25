@@ -1,6 +1,8 @@
 
 
 $(document).ready(function () {
+    $('#package5').next(".dropdown-toggle").hide();
+
     console.log(string.package[1]);
     $('#package5').next(".dropdown-toggle").prop('disabled', true);
     $('#delivery_frequency5').next(".dropdown-toggle").prop('disabled', true);
@@ -98,6 +100,11 @@ $(document).ready(function () {
 
     $(document).on("click", ".show_step5_form", function (event) {
         console.log("show_step5_form");
+
+        $('.package_note_final_page').text($('#package5').children("option:selected").text());
+
+
+        // $('.final_page_package_label').hide();
         $('.shipping_address_final_page').val( $('#shipping_address').val());
         $('.shipping_address1_final_page').val( $('#shipping_address2').val());
         $('.s_city_state_zip_final_page').val( $('#s_city_state_zip').val());
@@ -116,9 +123,9 @@ $(document).ready(function () {
         }
 
         let package_value = localStorage.getItem('package');
-        let service_fees = ((string.package[package_value]*2)/100).toFixed(2);
-        let delivery_fees = ((string.package[package_value]*2)/100).toFixed(2);
-        let tax = ((string.package[package_value]*0.4)/100).toFixed(2);
+        let service_fees = string.service_fees.toFixed(2);
+        let delivery_fees = string.delivery_fees.toFixed(2);
+        let tax = ((string.package[package_value]*string.tax)/100).toFixed(2);
         let package_amount = string.package[package_value];
         let total_amount = (parseFloat(package_amount) + parseFloat(service_fees) + parseFloat(delivery_fees) + parseFloat(tax)).toFixed(2);
         
@@ -179,9 +186,9 @@ $(document).ready(function () {
         setDropDownvalue();
 
         let package_value = localStorage.getItem('package');
-        let service_fees = ((string.package[package_value]*2)/100).toFixed(2);
-        let delivery_fees = ((string.package[package_value]*2)/100).toFixed(2);
-        let tax = ((string.package[package_value]*0.4)/100).toFixed(2);
+        let service_fees = string.service_fees.toFixed(2);
+        let delivery_fees = string.delivery_fees.toFixed(2);
+        let tax = ((string.package[package_value]*string.tax)/100).toFixed(2);
         let package_amount = string.package[package_value];
         let total_amount = (parseFloat(package_amount) + parseFloat(service_fees) + parseFloat(delivery_fees) + parseFloat(tax)).toFixed(2);
         
@@ -307,6 +314,7 @@ $(document).ready(function () {
             card_expiry: {
                 required: true,
                 minlength: 5,
+                maxlength: 6,
             },
         },
 
@@ -370,10 +378,16 @@ $(document).ready(function () {
     });
 
     $('.edit_package').on('click', function(){
+        $('.package_note_final_page').text($('#package5').children("option:selected").text());
+        
         if( $(this).text() == 'Edit' ){
+            // $('.final_page_package_label').hide();
+            $('#package5').next(".dropdown-toggle").show();
             $('#package5').next(".dropdown-toggle").prop('disabled', false);
             $(this).text('Save');
         }else{
+            // $('.final_page_package_label').show();
+            $('#package5').next(".dropdown-toggle").hide();
             $('#package5').next(".dropdown-toggle").prop('disabled', true);
             $(this).text('Edit');
         }
