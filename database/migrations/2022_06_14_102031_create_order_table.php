@@ -31,6 +31,7 @@ class CreateOrderTable extends Migration
             $table->unsignedInteger('payment_method');
             $table->string('odr_transaction_id');
             $table->double('odr_transaction_amount');
+            $table->double('odr_tax_amount');
             $table->text('odr_adv_detail_access_token');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

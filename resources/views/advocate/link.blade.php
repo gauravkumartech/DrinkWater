@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kenny Raphael</title>
+  <title>DRINK WATR</title>
 
   <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}" />
   <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}" />
   <input type="hidden" value="{{url('/')}}" class="base_url">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
 </head>
 
@@ -21,9 +23,8 @@
 
   <main class="app_wrapper waterbg splash">
     <div class="custom_container">
-
       <div class="welcome_wrapper text-center">
-        <div class="tagline_wrap">
+        <div class="tagline_wrap" data-aos="zoom-in-up" data-aos-duration="1500">
           <div class="tagline">
             <span>Drink Water</span>
             <span> Stay Strong.</span>
@@ -36,16 +37,18 @@
     </div>
   </main>
 
+  
+
   <main class="app_wrapper waterbg welcome" style="display: none;">
     <div class="custom_container">
 
       <div class="welcome_wrapper text-center">
 
-        <p class="welcome_note"> WELCOME TO YOUR PATH TO DAILY HYDRATION + WELLNESS</p>
+        <p class="welcome_note" data-aos="fade-up" data-aos-duration="3000"> WELCOME TO YOUR PATH TO DAILY HYDRATION + WELLNESS</p>
 
-        <h1>STAY STRONG.</h1>
+        <h1  data-aos="fade-up" data-aos-duration="3000">STAY STRONG.</h1>
 
-        <a type="button" class="welcome_link">Enter</a>
+        <a type="button" class="welcome_link" data-aos="fade-up" data-aos-duration="3000">Enter</a>
       </div>
     </div>
   </main>
@@ -80,14 +83,14 @@
               <div class="flex_col_sm_6">
                 <div class="form_field">
                   <div class="text-field">
-                    <input type="text" value="fswefwefw" name="first_name" id="first_name" placeholder="First Name">
+                    <input type="text" value="" name="first_name" id="first_name" placeholder="First Name">
                   </div>
                 </div>
               </div>
               <div class="flex_col_sm_6">
                 <div class="form_field">
                   <div class="text-field">
-                    <input type="text" value="fswefwefw" name="last_name" id="last_name" placeholder="Last Name">
+                    <input type="text" value="" name="last_name" id="last_name" placeholder="Last Name">
                   </div>
                 </div>
               </div>
@@ -97,14 +100,14 @@
               <div class="flex_col_sm_6">
                 <div class="form_field">
                   <div class="text-field">
-                    <input type="text" value="123456789" name="mobile" id="mobile" number placeholder="Mobile #">
+                    <input type="text" value="" name="mobile" id="mobile" number placeholder="Mobile #">
                   </div>
                 </div>
               </div>
               <div class="flex_col_sm_6">
                 <div class="form_field">
                   <div class="text-field">
-                    <input type="text" value="fswefwefw@wegwegewg.ewgewg" name="email" id="email" placeholder="Email">
+                    <input type="text" value="" name="email" id="email" placeholder="Email">
                   </div>
                 </div>
               </div>
@@ -174,7 +177,7 @@
                   <div class="flex_col_sm_6">
                     <div class="form_field">
                       <div class="text-field">
-                        <input type="text" value="billing_address" name="billing_address" id="billing_address" placeholder="BILLING ADDRESS1">
+                        <input type="text" value="" name="billing_address" id="billing_address" placeholder="BILLING ADDRESS1">
                       </div>
                     </div>
                   </div>
@@ -191,7 +194,7 @@
                   <div class="flex_col_sm_6">
                     <div class="form_field">
                       <div class="text-field">
-                        <input type="text" value="billing_address2" name="billing_address2" id="billing_address2" placeholder="BILLING ADDRESS2">
+                        <input type="text" value="" name="billing_address2" id="billing_address2" placeholder="BILLING ADDRESS2">
                       </div>
                     </div>
                   </div>
@@ -209,7 +212,7 @@
                   <div class="flex_col_sm_6">
                     <div class="form_field">
                       <div class="text-field">
-                        <input type="text" value="city state" name="b_city_state_zip" id="b_city_state_zip" placeholder="CITY/STATE/ZIP">
+                        <input type="text" value="" name="b_city_state_zip" id="b_city_state_zip" placeholder="CITY/STATE/ZIP">
                       </div>
                     </div>
                   </div>
@@ -484,6 +487,7 @@
                           <label class="form_label">TAX</label>
                         </div>
                         <div class="flex_col_sm_6 text-right">
+                          <input type="hidden" name="tax_amount" class="tax_amount">
                           <p class="show_label tax_amount">1.00</p>
                         </div>
                       </div>
@@ -519,7 +523,7 @@
 
                 <div class="text-center">
                   <div class="form_field">
-                    <button type="button" class="outline_btn m_r_20 show_step4_form">Back</button>
+                    {{-- <button type="button" class="outline_btn m_r_20 show_step4_form">Back</button> --}}
                     <button type="submit" class="primary_btn btn_effect btn_black purchase_button">PURHASE</button>
                   </div>
                 </div>
@@ -788,7 +792,8 @@
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/link.js')}}"></script>
 <script src="{{asset('js/show.js')}}"></script>
-
+<script src="{{asset('js/aos.js')}}"></script>
+<script src="{{asset('js/custom.js')}}"></script>
 
 
 

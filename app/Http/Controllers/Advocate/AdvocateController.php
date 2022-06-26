@@ -51,20 +51,7 @@ class AdvocateController extends Controller
         {
             // return $request->all();
 
-            // $result = $gateway->customer()->create([
-            //     'firstName' => $request->first_name,
-            //     'lastName' => $request->last_name,
-            //     // 'company' => 'Jones Co.',
-            //     'email' => $request->email,
-            //     'phone' => $request->mobile,
-            //     // 'fax' => '419.555.1235',
-            //     // 'website' => 'http://example.com'
-            // ]);
-
-            // return $result->customer;
-
             $amount = $request->total_amount ?? 10.00;
-
             $result = $gateway->transaction()->sale([
                 'amount' => $amount,
                 'paymentMethodNonce' => $request->payment_method_nonce,
@@ -72,17 +59,16 @@ class AdvocateController extends Controller
                 'options' => [ 'submitForSettlement' => True ]
             ]);
 
-            // return $result;
-
-            $data = Order::insert([
+            $orderId = Order::insertGetId([
                 'odr_first_name' => $request->first_name,
                 'odr_last_name' => $request->last_name,
                 'odr_email' => $request->email,
                 'odr_mobile' => $request->mobile,
                 'odr_package_id' => $request->package,
-                'odr_delivery_frequency_id' => $request->package,
+                'odr_delivery_frequency_id' => $request->delivery_frequency,
                 'billing_address' => $request->billing_address,
                 'shipping_address' => $request->shipping_address,
+                'billing_address2' => $request->billing_address2,
                 'shipping_address2' => $request->shipping_address2,
                 'b_city_state_zip' => $request->b_city_state_zip,
                 's_city_state_zip' => $request->s_city_state_zip,
@@ -90,10 +76,14 @@ class AdvocateController extends Controller
                 'odr_transaction_id' => $result->transaction->id,
                 'odr_transaction_amount' => $amount,
                 'odr_adv_detail_access_token' => $request->adv_detail_access_token,
+                'odr_tax_amount' => $request->tax_amount,
             ]);
 
+            // return 
+            $orderDetail = Order::find($orderId);
+            $advocateData = Advocate::where('adv_detail_access_token', $request->adv_detail_access_token)->first();
 
-            Mail::to($request->email)->send(new OrderPlaced());
+            Mail::to($request->email)->send(new OrderPlaced($advocateData, $orderDetail));
 
             $accountSid = getenv("TWILIO_ACCOUNT_SID");
             $authToken = getenv("TWILIO_AUTH_TOKEN");
@@ -113,5 +103,18 @@ class AdvocateController extends Controller
 
             return redirect()->back();
         }
+    }
+
+    public function orderDetail()
+    {
+        // return 
+        $orderDetail = Order::find(1);
+
+        $advocateData = Advocate::where('adv_detail_access_token', $orderDetail->odr_adv_detail_access_token)->first();
+
+        return view('emails\order_placed', [
+            'advocateData' => $advocateData,
+            'orderDetail' => $orderDetail
+        ]);
     }
 }

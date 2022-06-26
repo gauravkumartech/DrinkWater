@@ -506,7 +506,7 @@ body {
 .edit {
   position: absolute;
   right: 0;
-  top: 38%;
+  top: 50%;
   transform: translateY(-50%);
   background: #000;
   color: #fff;
@@ -541,5 +541,19 @@ body {
   font-size: 14px;
   font-weight: 500;
   margin: 0; }
+
+.support_note {
+  font-size: 17px;
+  text-align: center;
+  line-height: 1.7; }
+
+.droplet_logowrap {
+  margin: 45px 0; }
+  .droplet_logowrap span {
+    display: block;
+    font-size: 19px;
+    margin: 0 0 13px; }
+  .droplet_logowrap img {
+    width: 210px; }
 
 /*# sourceMappingURL=style.css.map */
