@@ -89,6 +89,7 @@ class AdvocateController extends Controller
                 'payment_method' => $request->payment_method,
                 'odr_transaction_id' => $result->transaction->id,
                 'odr_transaction_amount' => $amount,
+                'odr_adv_detail_access_token' => $request->adv_detail_access_token,
             ]);
 
 
