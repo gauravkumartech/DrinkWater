@@ -15,7 +15,9 @@
 
 </head>
 
-<body>
+<img src="{{asset('images\loader.gif')}}" class="loader" style="width:100%;height:100%; display:none">
+
+<body class="body">
 
   <main class="app_wrapper waterbg splash">
     <div class="custom_container">
@@ -350,7 +352,8 @@
                 </div>
                 <div class="dots_wrapper">
                   <button type="button" class="outline_btn m_r_20 show_step2_form">Back</button>
-                  <button type="submit" class="primary_btn show_step4_form">Next</button>
+                  {{-- <button type="submit" class="primary_btn show_step4_form">Next</button> --}}
+                  <button type="submit" class="primary_btn">Next</button>
                 </div>
               </div>
             </div>
@@ -363,130 +366,6 @@
           </main>
         </div>
 
-        <!-- Card Detail Filling -->
-        <div class="step4_form" style="display: none;">
-          <main class="app_wrapper waterbg">
-            <div class="custom_container">
-
-
-              <div class="head_section">
-                <div class="brand">
-                  <figure class="logo"><img src="{{asset('images/logowater.png')}}" alt="Logo" /></figure>
-                  <span class="brand_txt">+ {{$advocateData->adv_first_name}} {{$advocateData->adv_last_name}}</span>
-                </div>
-                <div class="tagline_wrap">
-                  <p>Your Path to daily hydration + wellness</p>
-                </div>
-              </div>
-
-              <input type="hidden" class="client_token" value="{{$client_token}}">
-              <input id="nonce" name="payment_method_nonce" type="hidden" />
-
-              <div class="form_wrapper">
-                <div class="flex_row">
-                  <div class="flex_col_sm_4"></div>
-                  <div class="flex_col_sm_5">
-                    <div class="form_field">
-                      <div class="text-field custom_select">
-                        <select class="selectpicker payment_method" name="payment_method" id="payment_method">
-                          <option>SELECT PAYMENT METHOD</option>
-                          <option value="1">CREDIT CARD</option>
-                          <option value="2">DEBIT CARD</option>
-                          <option value="3">VENMO </option>
-                          <option value="4">APPLY PAY </option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- <div class="flex_row">
-                  <div class="flex_col_sm_12">
-                    <div class="form_field">
-                      <div class="text-field">
-                        <input type="text" name="name_on_card" id="name_on_card" placeholder="NAME ON CARD">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="flex_row">
-                  <div class="flex_col_sm_12">
-                    <div class="form_field">
-                      <div class="text-field">
-                        <input type="text" name="card_number" id="card_number" placeholder="CARD NUMBER">
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-
-                <div class="bt-drop-in-wrapper">
-                  <div id="bt-dropin"></div>
-                </div>
-
-                <!-- <div class="flex_row">
-                  <div class="flex_col_sm_6">
-                    <div class="form_field">
-                      <div class="text-field">
-                        <input type="text" name="card_cvv" id="card_cvv" placeholder="CVV">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex_col_sm_6">
-                    <div class="form_field">
-                      <div class="text-field">
-                        <input type="text" name="card_expiry" id="card_expiry" placeholder="EXPIRATION">
-                      </div>
-                    </div>
-                  </div> -->
-                </div>
-
-                <div class="flex_row m_t_50">
-
-                  <div class="flex_col_sm_6">
-                    <div class="form_field">
-                      <div class="text-field">
-                        <select class="selectpicker custom_select" name="package" id="package3" required>
-                          <option value="">Select Package</option>
-                          <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
-                          <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
-                          <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex_col_sm_6">
-                    <div class="form_field">
-                      <div class="text-field custom_select">
-                        <select class="selectpicker" name="delivery_frequency" id="delivery_frequency3" required>
-                          <option value="">Delivery frequency</option>
-                          <option value="1">EVERY SUNDAY</option>
-                          <option value="2">EVERY MONDAY</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                
-
-                <div class="dots_wrapper">
-                  <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li class="active"></li>
-                  </ul>
-                </div>
-
-                <div class="dots_wrapper">
-                  <button type="button" class="outline_btn m_r_20 show_step3_form">Back</button>
-                  <button type="submit" class="primary_btn show_step5_form">Next</button>
-                </div>
-              </div>
-            </div>
-          </main>
-        </div>
 
         <!-- style="display: none;" -->
         <div class="step5_form" style="display: none;">
@@ -640,7 +519,8 @@
 
                 <div class="text-center">
                   <div class="form_field">
-                    <button type="submit" class="primary_btn btn_effect btn_black">PURHASE</button>
+                    <button type="button" class="outline_btn m_r_20 show_step4_form">Back</button>
+                    <button type="submit" class="primary_btn btn_effect btn_black purchase_button">PURHASE</button>
                   </div>
                 </div>
 
@@ -659,111 +539,238 @@
           </main>
         </div>
 
+        <!-- Card Detail Filling -->
+        <div class="step4_form" style="display: none;">
+          <main class="app_wrapper waterbg">
+            <div class="custom_container">
+
+
+              <div class="head_section">
+                <div class="brand">
+                  <figure class="logo"><img src="{{asset('images/logowater.png')}}" alt="Logo" /></figure>
+                  <span class="brand_txt">+ {{$advocateData->adv_first_name}} {{$advocateData->adv_last_name}}</span>
+                </div>
+                <div class="tagline_wrap">
+                  <p>Your Path to daily hydration + wellness</p>
+                </div>
+              </div>
+
+              <input type="hidden" class="client_token" value="{{$client_token}}">
+              <input id="nonce" name="payment_method_nonce" type="hidden" />
+
+              <div class="form_wrapper">
+                <div class="flex_row">
+                  <div class="flex_col_sm_4"></div>
+                  <div class="flex_col_sm_5">
+                    <div class="form_field">
+                      <div class="text-field custom_select">
+                        <select class="selectpicker payment_method" name="payment_method" id="payment_method">
+                          <option>SELECT PAYMENT METHOD</option>
+                          <option value="1">CREDIT CARD</option>
+                          <option value="2">DEBIT CARD</option>
+                          <option value="3">VENMO </option>
+                          <option value="4">APPLY PAY </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="flex_row">
+                  <div class="flex_col_sm_12">
+                    <div class="form_field">
+                      <div class="text-field">
+                        <input type="text" name="name_on_card" id="name_on_card" placeholder="NAME ON CARD">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex_row">
+                  <div class="flex_col_sm_12">
+                    <div class="form_field">
+                      <div class="text-field">
+                        <input type="text" name="card_number" id="card_number" placeholder="CARD NUMBER">
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="bt-drop-in-wrapper">
+                  <div id="bt-dropin"></div>
+                </div>
+
+                <!-- <div class="flex_row">
+                  <div class="flex_col_sm_6">
+                    <div class="form_field">
+                      <div class="text-field">
+                        <input type="text" name="card_cvv" id="card_cvv" placeholder="CVV">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex_col_sm_6">
+                    <div class="form_field">
+                      <div class="text-field">
+                        <input type="text" name="card_expiry" id="card_expiry" placeholder="EXPIRATION">
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+
+                <div class="flex_row m_t_50">
+
+                  <div class="flex_col_sm_6">
+                    <div class="form_field">
+                      <div class="text-field">
+                        <select class="selectpicker custom_select" name="package" id="package3" required>
+                          <option value="">Select Package</option>
+                          <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
+                          <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
+                          <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex_col_sm_6">
+                    <div class="form_field">
+                      <div class="text-field custom_select">
+                        <select class="selectpicker" name="delivery_frequency" id="delivery_frequency3" required>
+                          <option value="">Delivery frequency</option>
+                          <option value="1">EVERY SUNDAY</option>
+                          <option value="2">EVERY MONDAY</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+
+                <div class="dots_wrapper">
+                  <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li class="active"></li>
+                  </ul>
+                </div>
+
+                <div class="dots_wrapper">
+                  <button type="button" class="outline_btn m_r_20 show_step3_form">Back</button>
+                  <button type="submit" class="primary_btn show_step5_form">Next</button>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+
       </form>
 
-      <div class="final_form" style="display: none;">
+    </div>
+    
+  </main>
 
-        <main class="app_wrapper waterbg">
-          <div class="custom_container">
+  <div class="final_form" style="display: none;">
 
-            <div class="head_section">
-              <div class="brand">
-                <figure class="logo"><img src="{{asset('images/logowater.png')}}" alt="Logo" /></figure>
-                <span class="brand_txt">+ {{$advocateData->adv_first_name}} {{$advocateData->adv_last_name}}</span>
-              </div>
+    <main class="app_wrapper waterbg">
+      <div class="custom_container">
 
-              <div class="tagline_wrap">
-                <div class="tagline">
-                  <span>Drink Water</span>
-                  <span> Stay Strong.</span>
-                </div>
-                <p>Your Path to daily hydration + wellness</p>
-              </div>
-            </div>
-
-
-            <div class="form_wrapper">
-              <div class="flex_row">
-                <div class="flex_col_sm_4">
-
-                </div>
-                <div class="flex_col_sm_6">
-                  <div class="form_field">
-                    <div class="text-field">
-                      <input type="text" placeholder="YOUR SOLUTION">
-                    </div>
-                    <span> 1 Month of HYDRATION (10 KITS)</span>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="flex_row">
-                <div class="flex_col_sm_4"> </div>
-                <div class="flex_col_sm_6">
-                  <div class="form_field">
-                    <div class="text-field">
-                      <input type="text" placeholder="DELVERY FREQENCY">
-                    </div>
-                    <span>EVERY SUNDAY</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex_row">
-                <div class="flex_col_sm_2"></div>
-                <div class="flex_col_sm_8">
-                  <p class="text-center">YOU WILL RECEIVE A RECEIPT VIA TEXT & EMAIL</p>
-                </div>
-              </div>
-
-
-              <div class="flex_row">
-
-                <div class="flex_col_sm_6">
-                  <div class="flex_row">
-                    <div class="flex_col_sm_6">
-                      <span class="form_label"> TAX</span>
-                    </div>
-                    <div class="flex_col_sm_6">
-                      <label class="show_label"> 1.00</label>
-                    </div>
-                  </div>
-
-                  <div class="flex_row">
-                    <div class="flex_col_sm_6">
-                      <span class="form_label"> DELIVERY</span>
-                    </div>
-                    <div class="flex_col_sm_6">
-                      <label class="show_label"> 5.00</label>
-                    </div>
-                  </div>
-
-                  <div class="flex_row">
-                    <div class="flex_col_sm_6">
-                      <span class="form_label"> TOTAL</span>
-                    </div>
-                    <div class="flex_col_sm_6">
-                      <label class="show_label"> $256.00</label>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-
-
-
-
-            </div>
-
+        <div class="head_section">
+          <div class="brand">
+            <figure class="logo"><img src="{{asset('images/logowater.png')}}" alt="Logo" /></figure>
+            <span class="brand_txt">+ {{$advocateData->adv_first_name}} {{$advocateData->adv_last_name}}</span>
           </div>
-        </main>
+
+          <div class="tagline_wrap">
+            <div class="tagline">
+              <span>Drink Water</span>
+              <span> Stay Strong.</span>
+            </div>
+            <p>Your Path to daily hydration + wellness</p>
+          </div>
+        </div>
+
+
+        <div class="form_field">
+          <div class="flex_row">
+            <div class="flex_col_sm_4"></div>
+            <div class="flex_col_sm_6">
+              <div class="form_field">
+                <div class="text-field">
+                  <input type="text" placeholder="YOUR SOLUTION" disabled>
+                </div>
+                <span class="package_note_final_page"> 1 Month of HYDRATION (10 KITS)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex_row">
+            <div class="flex_col_sm_4"> </div>
+            <div class="flex_col_sm_6">
+              <div class="form_field">
+                <div class="text-field">
+                  <input type="text" placeholder="DELVERY FREQENCY" disabled>
+                </div>
+                <span class="delivery_note_final_page">EVERY SUNDAY</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex_row">
+            <div class="flex_col_sm_2"></div>
+            <div class="flex_col_sm_8">
+              <p class="text-center">YOU WILL RECEIVE A RECEIPT VIA TEXT & EMAIL</p>
+            </div>
+          </div>
+
+          <div class="flex_row">
+
+            <div class="flex_col_sm_8">
+              <div class="flex_row">
+                <div class="flex_col_sm_6">
+                  <span class="form_label"> <b>TAX</b></span>
+                </div>
+                <div class="flex_col_sm_6">
+                  <label class="show_label tax_amount"> 1.00</label>
+                </div>
+              </div>
+
+              <div class="flex_row">
+                <div class="flex_col_sm_6">
+                  <label class="form_label"><b>SERVICE FEE</b></label>
+                </div>
+                <div class="flex_col_sm_6">
+                  <p class="show_label service_fees">5.00</p>
+                </div>
+              </div>
+
+              <div class="flex_row">
+                <div class="flex_col_sm_6">
+                  <span class="form_label"><b>DELIVERY</b></span>
+                </div>
+                <div class="flex_col_sm_6">
+                  <label class="show_label service_fees"> 5.00</label>
+                </div>
+              </div>
+
+              <div class="flex_row">
+                <div class="flex_col_sm_6">
+                  <span class="form_label"><b>TOTAL</b></span>
+                </div>
+                <div class="flex_col_sm_6">
+                  <label class="show_label total_amount"> $256.00</label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
 
       </div>
-    </div>
-  </main>
+    </main>
+
+  </div>
 
 </body>
 
@@ -778,7 +785,9 @@
 <script src="{{asset('js/bootstrap-select.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
 <script src="https://js.braintreegateway.com/web/dropin/1.33.2/js/dropin.min.js"></script>
+<script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/link.js')}}"></script>
+<script src="{{asset('js/show.js')}}"></script>
 
 
 

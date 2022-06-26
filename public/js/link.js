@@ -2,8 +2,6 @@
 
 
 var form = document.querySelector('#basic-form');
-// var client_token = "<?php //echo($gateway->ClientToken()->generate()); ?>";
-
 var client_token = $('.client_token').val();
 
 braintree.dropin.create({
@@ -30,7 +28,8 @@ braintree.dropin.create({
       // Add the nonce to the form and submit
       document.querySelector('#nonce').value = payload.nonce;
       localStorage.setItem('braintree_error', false);
-    //   form.submit();
+      // form.submit();
+      // $('.show_step5_form').click();
     });
   });
 });
@@ -38,169 +37,8 @@ braintree.dropin.create({
 
 $(document).ready(function () {
 
-    // $('.step1_form').hide();
-    // $('.step4_form').show();
-    $('#package5').next(".dropdown-toggle").hide();
-    $('#delivery_frequency5').next(".dropdown-toggle").hide();
-    // $('#payment_method').next(".dropdown-toggle").hide();
-
-
-    console.log(string.package[1]);
-    $('#package5').next(".dropdown-toggle").prop('disabled', true);
-    $('#delivery_frequency5').next(".dropdown-toggle").prop('disabled', true);
-
-    localStorage.clear();
-
-    let time1 = setTimeout(function () {
-        $(".splash").hide();
-        $(".welcome").show();
-    }, string.timeout);
-
-    let time2 = setTimeout(function () {
-        $(".splash").hide();
-        $(".welcome").hide();
-        $(".main_content").show();
-    }, string.timeout1);
-
-    $(".splash_link").click(function () {
-        clearTimeout(time1);
-        $(".splash").hide();
-        $(".welcome").show();
-        $(".main_content").hide();
-    });
-
-    $(".welcome_link").click(function () {
-        clearTimeout(time2);
-        $(".splash").hide();
-        $(".welcome").hide();
-        $(".main_content").show();
-    });
-
-    $(".main_content_back").click(function () {
-        $(".splash").hide();
-        $(".welcome").show();
-        $(".main_content").hide();
-
-        setTimeout(function () {
-            $(".splash").hide();
-            $(".welcome").hide();
-            $(".main_content").show();
-        }, string.timeout);
-        setDropDownvalue();
-    });
-
-    $(document).on("click", ".show_step1_form", function (event) {
-        console.log("show_step1_form");
-        $(".step2_form").hide(true);
-        $(".step3_form").hide(true);
-        $(".step4_form").hide(true);
-        $(".step1_form").show(true);
-        $(".current_tab").val("step1_form");
-        setDropDownvalue();
-    });
-
-    $(document).on("click", ".show_step2_form", function (event) {
-        console.log("show_step2_form");
-        $(".step1_form").hide(true);
-        $(".step3_form").hide(true);
-        $(".step4_form").hide(true);
-        $(".step2_form").show(true);
-        $(".current_tab").val("step2_form");
-        setDropDownvalue();
-    });
-
-    $(document).on("click", ".show_step3_form", function (event) {
-        console.log("show_step3_form");
-        $('.payment_method').next(".dropdown-toggle").prop('disabled', false);
-        // if ($("#basic-form").valid()) {
-            $(".step1_form").hide(true);
-            $(".step2_form").hide(true);
-            $(".step4_form").hide(true);
-            $(".step3_form").show(true);
-            $(".current_tab").val("step3_form");
-            setDropDownvalue();
-        // }
-    });
-
-    $(document).on("click", ".show_step4_form", function (event) {
-        console.log("show_step4_form");
-        // $('.payment_method').next(".dropdown-toggle").prop('disabled', true);
-
-        if ($("#basic-form").valid()) {
-            $(".step1_form").hide(true);
-            $(".step2_form").hide(true);
-            $(".step2_form").hide();
-            $(".step3_form").hide(true);
-            $(".step4_form").show(true);
-            $(".step5_form").hide(true);
-            $(".current_tab").val("step4_form");
-            setDropDownvalue();
-        }
-    });
-
-    $(document).on("click", ".show_step5_form", function (event) {
-        console.log("show_step5_form");
-        // return false;
-        
-        
-        console.log( localStorage.getItem('braintree_error'));
-
-        console.log(`$("#basic-form").valid()`,$("#basic-form").valid());
-        
-        if ($("#basic-form").valid() && (localStorage.getItem('braintree_error') == 'false' || localStorage.getItem('braintree_error') == false) ) {
-
-            console.log('IN');
-
-            $('.package_note_final_page').text($('#package5').children("option:selected").text());
+    // showLoader();     
     
-            // $('.payment_method').next(".dropdown-toggle").hide();
-    
-            $('.shipping_address_final_page').val( $('#shipping_address').val());
-            $('.shipping_address1_final_page').val( $('#shipping_address2').val());
-            $('.s_city_state_zip_final_page').val( $('#s_city_state_zip').val());
-    
-            $('.last_4_digit_card').text($("#basic-form").serializeArray()[23].value.substr($("#basic-form").serializeArray()[23].value.length - 4));
-
-
-            $(".step1_form").hide(true);
-            $(".step2_form").hide(true);
-            $(".step2_form").hide();
-            $(".step3_form").hide(true);
-            $(".step4_form").hide(true);
-            $(".step5_form").show(true);
-            $(".current_tab").val("step5_form");
-            setDropDownvalue();
-            
-            let package_value = localStorage.getItem('package');
-            let service_fees = string.service_fees.toFixed(2);
-            let delivery_fees = string.delivery_fees.toFixed(2);
-            let tax = ((string.package[package_value]*string.tax)/100).toFixed(2);
-            let package_amount = string.package[package_value];
-            let total_amount = (parseFloat(package_amount) + parseFloat(service_fees) + parseFloat(delivery_fees) + parseFloat(tax)).toFixed(2);
-            
-            $('.service_fees').text('$' + service_fees);
-            $('.delivery_fees').text('$' + delivery_fees);
-            $('.tax_amount').text('$' + tax);
-            $('.total_amount').text('$' + total_amount);
-        $('.total_amount').val(total_amount);
-        }
-
-
-    });
-
-    $(document).on("click", ".show_final_form", function (event) {
-        console.log("show_final_form");
-        if ($("#basic-form").valid()) {
-            $(".step1_form").hide(true);
-            $(".step2_form").hide(true);
-            $(".step3_form").hide(true);
-            $(".step4_form").hide(true);
-            $(".final_form").show(true);
-            $(".current_tab").val("final_form");
-        }
-        setDropDownvalue();
-    });
-
     $(document).on("change", "#package1", function () {
         console.log("package1 change");
 
@@ -250,7 +88,7 @@ $(document).ready(function () {
         $('.delivery_fees').text('$' + delivery_fees);
         $('.tax_amount').text('$' + tax);
         $('.total_amount').text('$' + total_amount);
-$('.total_amount').val(total_amount);
+        $('.total_amount').val(total_amount);
     });
 
     $(document).on("change", "#delivery_frequency1", function () {
@@ -288,6 +126,11 @@ $('.total_amount').val(total_amount);
         localStorage.setItem("payment_method", selected);
         setDropDownvalue();
     });
+
+    $('.purchase_button').on('click', function(){
+        console.log('purchase_button');
+        $(".current_tab").val("final_form");
+    })
 
     $("#basic-form").validate({     
         rules: {
@@ -407,15 +250,21 @@ $('.total_amount').val(total_amount);
 
             console.log($(this));
 
-            if (current_tab == "step1_form") {
-                setDropDownvalue();
-                $(".step1_form").hide();
-                $(".step2_form").show();
-                $(".current_tab").val("step2_form");
+            if (current_tab == "step1_form") 
+            {
+                showLoader();
+                if ($("#basic-form").valid()) {
+                    setDropDownvalue();
+                    $(".step1_form").hide();
+                    $(".step2_form").show();
+                    $(".current_tab").val("step2_form");
+                }
+                hideLoader();
             }
 
             if(current_tab == "step2_form")
             {
+                showLoader();
                 $('.payment_method').next(".dropdown-toggle").prop('disabled', false);
                 if ($("#basic-form").valid()) {
                     $(".step1_form").hide(true);
@@ -425,12 +274,35 @@ $('.total_amount').val(total_amount);
                     $(".current_tab").val("step3_form");
                     setDropDownvalue();
                 }
+                hideLoader();
+            }
+
+            if(current_tab == "step3_form")
+            {
+                showLoader();
+                if ($("#basic-form").valid()) {
+                    $(".step1_form").hide(true);
+                    $(".step2_form").hide(true);
+                    $(".step2_form").hide();
+                    $(".step3_form").hide(true);
+                    $(".step4_form").show(true);
+                    $(".step5_form").hide(true);
+                    $(".current_tab").val("step4_form");
+                    setDropDownvalue();
+                }
+                hideLoader();
+            }
+
+            if(current_tab == "step4_form")
+            {
+                $('.show_step5_form').click();
+                $('#basic_form').submit();
             }
 
             if( current_tab == 'step5_form')
             {
                 // return;
-                form.submit();
+                // form.submit();
                 $('.package_note_final_page').text($('#package5').children("option:selected").text());
     
                 $('.payment_method').next(".dropdown-toggle").hide();
@@ -447,7 +319,7 @@ $('.total_amount').val(total_amount);
                 $(".step3_form").hide(true);
                 $(".step4_form").hide(true);
                 $(".step5_form").show(true);
-                $(".current_tab").val("step5_form");
+                $(".current_tab").val("final_form");
                 setDropDownvalue();
                 
                 let package_value = localStorage.getItem('package');
@@ -464,24 +336,43 @@ $('.total_amount').val(total_amount);
                 $('.total_amount').val(total_amount);
 
             }
+
+            if( current_tab == 'final_form')
+            {
+              if ($("#basic-form").valid()) {
+                $(".step1_form").hide(true);
+                $(".step2_form").hide(true);
+                $(".step3_form").hide(true);
+                $(".step4_form").hide(true);
+                $(".step5_form").hide(true);
+                $(".final_form").show(true);
+                $(".current_tab").val("final_form");
+              }
+              setDropDownvalue();
+              form.submit();
+            }
         },
     });
 
-    function setDropDownvalue() {
-        var package = localStorage.getItem("package");
-        var delivery_frequency = localStorage.getItem("delivery_frequency");
-        var payment_method = localStorage.getItem("payment_method");
 
-        console.log("package", package);
-        console.log("delivery_frequency", delivery_frequency);
-        console.log("payment_method", payment_method);
-
-        $("select[name=package]").val(package);
-        $("select[name=delivery_frequency]").val(delivery_frequency);
-        $("select[name=payment_method]").val(payment_method);
-        $(".selectpicker").selectpicker("refresh");
+    function showLoader(){
+        $('.loader').show();
+        $('.main_content').hide();
     }
 
+    function hideLoader(){
+
+        // $('.loader').hide();
+        // $('.main_content').show();
+        // return;
+
+        setTimeout(function(){
+            $('.loader').hide();
+            $('.main_content').show();
+        },1000);
+    }
+
+    
     $(".same_billing_address").click(function () {
         $("#shipping_address").val($("#billing_address").val());
         $("#shipping_address2").val($("#billing_address2").val());
