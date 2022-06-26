@@ -51,7 +51,7 @@
   <main class="app_wrapper waterbg main_content" style="display: none;">
     <div class="custom_container">
 
-      <form id="basic-form">
+      <form id="basic-form" method="POST">
         @csrf
         <input type="hidden" class="current_tab" value="step1_form">
 
@@ -262,7 +262,10 @@
 
                 <div class="dots_wrapper">
                   <button type="button" class="outline_btn m_r_20 show_step1_form">Back</button>
-                  <button type="submit" class="primary_btn show_step3_form">Next</button>
+                  <button type="submit" class="primary_btn">Next</button>
+                  
+                  <!-- <button type="submit" class="primary_btn show_step3_form">Next</button> -->
+
                 </div>
               </div>
 
@@ -302,8 +305,8 @@
                     <div class="form_field">
                       <div class="text-field custom_select">
                         <select class="selectpicker payment_method" name="payment_method" id="payment_method">
-                          <option>SELECT PAYMENT METHOD</option>
-                          <option value="1" selected>CREDIT CARD</option>
+                          <option value="">SELECT PAYMENT METHOD</option>
+                          <option value="1">CREDIT CARD</option>
                           <option value="2">DEBIT CARD</option>
                           <option value="3">VENMO </option>
                           <option value="4">APPLY PAY </option>
@@ -346,7 +349,7 @@
                   </ul>
                 </div>
                 <div class="dots_wrapper">
-                  <button class="outline_btn m_r_20 show_step2_form">Back</button>
+                  <button type="button" class="outline_btn m_r_20 show_step2_form">Back</button>
                   <button type="submit" class="primary_btn show_step4_form">Next</button>
                 </div>
               </div>
@@ -397,7 +400,7 @@
                   </div>
                 </div>
 
-                <div class="flex_row">
+                <!-- <div class="flex_row">
                   <div class="flex_col_sm_12">
                     <div class="form_field">
                       <div class="text-field">
@@ -415,9 +418,13 @@
                       </div>
                     </div>
                   </div>
+                </div> -->
+
+                <div class="bt-drop-in-wrapper">
+                  <div id="bt-dropin"></div>
                 </div>
 
-                <div class="flex_row">
+                <!-- <div class="flex_row">
                   <div class="flex_col_sm_6">
                     <div class="form_field">
                       <div class="text-field">
@@ -431,7 +438,7 @@
                         <input type="text" name="card_expiry" id="card_expiry" placeholder="EXPIRATION">
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
 
                 <div class="flex_row m_t_50">
@@ -461,9 +468,7 @@
                   </div>
                 </div>
 
-                <!-- <div class="bt-drop-in-wrapper">
-                  <div id="bt-dropin"></div>
-                </div> -->
+                
 
                 <div class="dots_wrapper">
                   <ul>
@@ -475,7 +480,7 @@
                 </div>
 
                 <div class="dots_wrapper">
-                  <button class="outline_btn m_r_20 show_step3_form">Back</button>
+                  <button type="button" class="outline_btn m_r_20 show_step3_form">Back</button>
                   <button type="submit" class="primary_btn show_step5_form">Next</button>
                 </div>
               </div>
@@ -488,7 +493,6 @@
           <main class="app_wrapper waterbg">
             <div class="custom_container">
 
-
               <div class="head_section">
                 <div class="brand">
                   <figure class="logo"><img src="{{asset('images/logowater.png')}}" alt="Logo" /></figure>
@@ -499,7 +503,6 @@
                   <p>Your Path to daily hydration + wellness</p>
                 </div>
               </div>
-
 
               <div class="form_wrapper edit_form_wrapper">
                 <div class="flex_row">
@@ -525,6 +528,11 @@
 
                     <div class="form_field">
                       <div class="text-field">
+
+                        <select class="selectpicker custom_select final_page_delivery_freq_label">
+                          <option value="" selected>DELIVERY FREQUENCY</option>
+                        </select>
+
                         <select class="selectpicker custom_select" title="DELIVERY FREQUENCY" name="delivery_frequency" id="delivery_frequency5" required>
                           <option value="">Delivery frequency</option>
                           <option value="1" selected>EVERY SUNDAY</option>
@@ -532,7 +540,7 @@
                         </select>
                         <button type="button" class="edit btn_effect edit_delivery_freq">Edit</button>
                       </div>
-                      <span class="text-note">EVERY SUNDAY FOR 1 MONTH </span>
+                      <span class="text-note delivery_note_final_page">EVERY SUNDAY FOR 1 MONTH </span>
                       <span class="text-note">(1st DELIVERY 4 KITS, THEN 2 KITS THEREAFTER). </span>
                     </div>
 
@@ -543,7 +551,6 @@
                         <button type="button" class="edit btn_effect edit_address_final_page">EDIT</button>
                       </div>
                     </div>
-
 
                     <div class="form_field">
                       <div class="flex_row">
@@ -574,6 +581,11 @@
 
                     <div class="form_field">
                       <div class="text-field">
+
+                        <select class="selectpicker custom_select final_page_payment_source_label">
+                          <option value="" selected>PAYMENT SOURCE</option>
+                        </select>
+
                         <select class="selectpicker custom_select payment_method" name="payment_method" id="payment_method">
                           <option>SELECT PAYMENT METHOD</option>
                           <option value="1">CREDIT CARD</option>
@@ -586,7 +598,6 @@
                       </div>
                       <span class="text-note">CARD ENDING IN <b><span class="last_4_digit_card"></span></b></span>
                     </div>
-
 
                     <div class="form_field">
                       <div class="flex_row">
@@ -618,34 +629,26 @@
                           <label class="form_label">TOTAL</label>
                         </div>
                         <div class="flex_col_sm_6 text-right">
+                          <input type="hidden" name="total_amount" class="total_amount">
                           <p class="show_label total_amount">$266</p>
                         </div>
                       </div>
                     </div>
 
-
                   </div>
                 </div>
-
-
-
-
 
                 <div class="text-center">
                   <div class="form_field">
-                    <button class="primary_btn btn_effect btn_black">PURHASE</button>
+                    <button type="submit" class="primary_btn btn_effect btn_black">PURHASE</button>
                   </div>
                 </div>
-
 
                 <div class="text-center recipt_note">
                   UPON PURCHASE YOU WILL RECEIVE A RECEIPT VIA TEXT & EMAIL
                 </div>
 
-
               </div>
-
-
 
             </div>
             <footer class="text-center">

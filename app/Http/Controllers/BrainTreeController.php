@@ -67,7 +67,7 @@ class BrainTreeController extends Controller
     
     public function call(Request $request)
     {
-        // return $request->all();
+        return $request->all();
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENV'),
             'merchantId' => env('BRAINTREE_MERCHANT_ID'),
