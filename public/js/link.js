@@ -29,7 +29,7 @@ braintree.dropin.create({
       document.querySelector('#nonce').value = payload.nonce;
       localStorage.setItem('braintree_error', false);
       // form.submit();
-      $('.show_step5_form').click();
+      // $('.show_step5_form').click();
     });
   });
 });
@@ -131,8 +131,8 @@ $(document).ready(function () {
     $('.purchase_button').on('click', function(){
         console.log('purchase_button');
         $(".current_tab").val("final_form");
-        $(this).prop('disabled',true);
-        $(this).text('Please Wait......');
+        // $(this).prop('disabled',true);
+        // $(this).text('Please Wait......');
     })
 
     $("#basic-form").validate({     
