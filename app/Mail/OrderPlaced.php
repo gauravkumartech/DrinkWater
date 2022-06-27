@@ -11,14 +11,17 @@ class OrderPlaced extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $advocateData;
+    protected $orderData;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($advocateData, $orderData)
     {
-        //
+        $this->advocateData = $advocateData;
+        $this->orderData = $orderData;
     }
 
     /**
@@ -29,6 +32,9 @@ class OrderPlaced extends Mailable
     public function build()
     {
         return $this->from('example@example.com', 'DrinkWater.com')
-            ->view('emails.order_placed');
+            ->view('emails.order_placed',[
+                'advocateData' => $this->advocateData,
+                'orderDetail' => $this->orderData,
+            ]);
     }
 }

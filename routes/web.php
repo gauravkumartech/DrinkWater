@@ -31,3 +31,5 @@ Route::match(['get'],'/braintree', 'App\Http\Controllers\BrainTreeController@vie
 Route::match(['post'],'/braintree', 'App\Http\Controllers\BrainTreeController@call');
 Route::match(['get'],'/wateradvocate/{detail_access_token}', 'App\Http\Controllers\Advocate\AdvocateController@getDetail');
 Route::match(['post'],'/wateradvocate/{detail_access_token}', 'App\Http\Controllers\Advocate\AdvocateController@getDetail');
+
+Route::match(['get'],'/orderDetail', 'App\Http\Controllers\Advocate\AdvocateController@orderDetail');

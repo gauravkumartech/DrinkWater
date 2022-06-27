@@ -281,3 +281,21 @@ body{
     font-weight: 500;
     margin: 0;
 }
+
+.support_note{
+    font-size: 17px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.droplet_logowrap {
+    margin: 45px 0;
+    span{
+        display: block;
+        font-size: 19px;
+        margin: 0 0 13px;
+    }
+    img{
+        width: 210px;
+    }
+}
