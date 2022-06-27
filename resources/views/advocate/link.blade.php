@@ -619,34 +619,35 @@
                       </div>
                     </div>
                   </div> -->
+                  <div class="flex_row m_t_50">
+
+<div class="flex_col_sm_6">
+  <div class="form_field">
+    <div class="text-field">
+      <select class="selectpicker custom_select" name="package" id="package3" required>
+        <option value="">Select Package</option>
+        <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
+        <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
+        <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="flex_col_sm_6">
+  <div class="form_field">
+    <div class="text-field custom_select">
+      <select class="selectpicker" name="delivery_frequency" id="delivery_frequency3" required>
+        <option value="">Delivery frequency</option>
+        <option value="1">EVERY SUNDAY</option>
+        <option value="2">EVERY MONDAY</option>
+      </select>
+    </div>
+  </div>
+</div>
+</div>
                 </div>
 
-                <div class="flex_row m_t_50">
-
-                  <div class="flex_col_sm_6">
-                    <div class="form_field">
-                      <div class="text-field">
-                        <select class="selectpicker custom_select" name="package" id="package3" required>
-                          <option value="">Select Package</option>
-                          <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
-                          <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
-                          <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex_col_sm_6">
-                    <div class="form_field">
-                      <div class="text-field custom_select">
-                        <select class="selectpicker" name="delivery_frequency" id="delivery_frequency3" required>
-                          <option value="">Delivery frequency</option>
-                          <option value="1">EVERY SUNDAY</option>
-                          <option value="2">EVERY MONDAY</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              
 
                 
 
