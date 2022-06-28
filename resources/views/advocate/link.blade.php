@@ -685,7 +685,7 @@
 
   <div class="final_form" style="display: none;">
 
-    <main class="app_wrapper waterbg">
+    {{-- <main class="app_wrapper waterbg">
       <div class="custom_container">
 
         <div class="head_section">
@@ -781,6 +781,48 @@
         </div>
 
       </div>
+    </main> --}}
+
+    <main class="app_wrapper waterbg">
+      <div class="custom_container">
+          <div class="head_section"> 
+            <div class="brand">
+              <figure class="logo"><img src="{{asset('images/logowater.png')}}" alt="Logo" /></figure>
+              <span class="brand_txt">+ {{$advocateData->adv_first_name}} {{$advocateData->adv_last_name}}</span>
+            </div>
+
+              <div class="tagline_wrap">
+                  <div class="tagline">
+                          <span>Drink Wter</span>
+                          <span> Stay Strong.</span>
+                  </div>
+                  <p>Your Path to daily hydration + wellness</p>
+              </div>
+          </div>
+
+
+          <div class="form_wrapper edit_form_wrapper">
+              
+            
+              <p class="support_note">
+                  A RECEIPT FOR YOUR PURCHASE HAS BEEN TEXTED AND EMAILED TO THE CREDENTIALS YOU PROVIDED. FOR ANY SUPPORT, PLEASE EMAIL CLARITY@DRINKWATR.COM
+              </p>
+
+              <figure class="droplet_logowrap text-center">
+                  <span>DELIVERY PERFORMED BY</span>
+                  <img src="{{asset('images/droplet.png')}}" />
+              </figure>
+
+          </div>
+
+
+
+      </div>
+      <footer class="text-center">
+          <div class="custom_container">
+              ALL RIGHT RESERVED 2022 &copy WATR, LLC. | PRIVACY + LEGAL
+          </div>
+      </footer>
     </main>
 
   </div>

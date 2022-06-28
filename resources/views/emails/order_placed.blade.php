@@ -38,7 +38,7 @@
               <div class="flex_col_sm_6">
                 <div class="form_field">
                   <div class="text-field">
-                    <input type="text" placeholder="YOUR SOLUTION" disabled>
+                    <input type="text" placeholder="YOUR WELNESS SOLUTION" disabled>
                   </div>
                   <span class="package_note_final_page"> {{config('constants.package_name')[$orderDetail->odr_package_id]}}</span>
                 </div>

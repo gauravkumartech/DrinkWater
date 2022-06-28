@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Order;
+use App\Models\Advocate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +16,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd('test');
-    return view('splash');
+    // dd('test');
+
+    $orderDetail = Order::find(1);
+
+    // return 
+    $advocateData = Advocate::where('adv_detail_access_token', '7p4MQhdEhl92jG9ZwpOOQBTJayd7qz1HonEjJKt0kFZ9hiCWqJ')->first();
+
+
+    return $pdf = PDF::loadView('emails.order_placed_new',[
+        'advocateData' => $advocateData,
+        'orderDetail' => $orderDetail,
+    ]);
+
+    return $pdf->download('pdfview.pdf');
+    
+    return view('emails.order_placed_new');
 })->name('splash');
 
 // Route::get('/welcome', function () {

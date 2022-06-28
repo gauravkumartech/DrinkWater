@@ -11,6 +11,7 @@ use App\Mail\OrderPlaced;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use PDF;
 
 class AdvocateController extends Controller
 {
