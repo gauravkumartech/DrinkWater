@@ -38,6 +38,29 @@
     100% { transform: translateY(-10px); }
 }
 
+.braintree-sheet__content--form{
+  text-align:center;
+}
+input[type="tel"]{
+    background: transparent;
+    padding: 12px 4px;
+    font-size: 14px;
+    border-radius: 0;
+    width: 100%;
+    -webkit-appearance: none;
+    border-bottom: 1px solid #000;
+}
+.braintree-sheet__header{
+  display:none !important;
+}
+.braintree-sheet{
+  border:none !important
+}
+.braintree-sheet__content--form .braintree-form__field-group .braintree-form__field .braintree-form__hosted-field{
+  border: none !important;
+  border-bottom: 1px solid #000 !important;
+}
+
   </style>
 </head>
 
