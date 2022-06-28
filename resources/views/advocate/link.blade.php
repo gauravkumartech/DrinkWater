@@ -26,7 +26,7 @@
       <div class="welcome_wrapper text-center">
         <div class="tagline_wrap" data-aos="zoom-in-up" data-aos-duration="1500">
           <div class="tagline">
-            <span>Drink Water</span>
+            <span>Drink Watr</span>
             <span> Stay Strong.</span>
           </div>
           <figure class="logo"><img src="{{asset('images/logowater.png')}}" alt="Logo" /></figure>
@@ -68,7 +68,7 @@
             </div>
             <div class="tagline_wrap">
               <div class="tagline">
-                <span>Drink Water</span>
+                <span>Drink Watr</span>
                 <span> Stay Strong.</span>
               </div>
               <p>Your Path to daily hydration + wellness</p>
@@ -119,7 +119,7 @@
                 <div class="form_field">
                   <div class="text-field">
                     <select class="selectpicker" name="package" id="package1" required>
-                      <option value="">Select Package</option>
+                      <option value="">{{config('constants.package.default_drop_down_text')}}</option>
                       <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
                       <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
                       <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
@@ -132,7 +132,7 @@
                 <div class="form_field">
                   <div class="text-field">
                     <select class="selectpicker" name="delivery_frequency" id="delivery_frequency1" required>
-                      <option value="">Delivery frequency</option>
+                      <option value="">{{config('constants.package.delivery_freq_text')}}</option>
                       <option value="1">EVERY SUNDAY</option>
                       <option value="2">EVERY MONDAY</option>
                     </select>
@@ -151,7 +151,7 @@
             </div>
 
             <div class="dots_wrapper">
-              <button type="button" class="outline_btn m_r_20 main_content_back">Back</button>
+              {{-- <button type="button" class="outline_btn m_r_20 main_content_back">Back</button> --}}
               <button type="submit" class="primary_btn btn_effect">Next</button>
             </div>
           </div>
@@ -235,7 +235,7 @@
                     <div class="form_field">
                       <div class="text-field">
                         <select class="selectpicker custom_select" name="package" id="package2" required>
-                          <option value="">Select Package</option>
+                          <option value="">{{config('constants.package.default_drop_down_text')}}</option>
                           <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
                           <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
                           <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
@@ -247,7 +247,7 @@
                     <div class="form_field">
                       <div class="text-field custom_select">
                         <select class="selectpicker" name="delivery_frequency" id="delivery_frequency2" required>
-                          <option value="">Delivery frequency</option>
+                          <option value="">{{config('constants.package.delivery_freq_text')}}</option>
                           <option value="1">EVERY SUNDAY</option>
                           <option value="2">EVERY MONDAY</option>
                         </select>
@@ -325,7 +325,7 @@
                     <div class="form_field">
                       <div class="text-field">
                         <select class="selectpicker custom_select" name="package" id="package4" required>
-                          <option value="">Select Package</option>
+                          <option value="">{{config('constants.package.default_drop_down_text')}}</option>
                           <option value="1" selected>1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
                           <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
                           <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
@@ -337,7 +337,7 @@
                     <div class="form_field">
                       <div class="text-field custom_select">
                         <select class="selectpicker" name="delivery_frequency" id="delivery_frequency4" required>
-                          <option value="">Delivery frequency</option>
+                          <option value="">{{config('constants.package.delivery_freq_text')}}</option>
                           <option value="1" selected>EVERY SUNDAY</option>
                           <option value="2">EVERY MONDAY</option>
                         </select>
@@ -416,7 +416,7 @@
                         </select>
 
                         <select class="selectpicker custom_select" title="DELIVERY FREQUENCY" name="delivery_frequency" id="delivery_frequency5" required>
-                          <option value="">Delivery frequency</option>
+                          <option value="">{{config('constants.package.delivery_freq_text')}}</option>
                           <option value="1" selected>EVERY SUNDAY</option>
                           <option value="2">EVERY MONDAY</option>
                         </select>
@@ -429,6 +429,10 @@
 
                     <div class="form_field">
                       <div class="text-field">
+                        <select class="selectpicker custom_select final_page_edit_address_label">
+                          <option value="" selected>DELIVERY ADDRESS</option>
+                        </select>
+
                         <input type="text" class="shipping_address_final_page" placeholder="SHIPPING ADDRESS" disabled>
                         <button type="button" class="edit btn_effect edit_address_final_page">EDIT</button>
                       </div>
@@ -462,13 +466,18 @@
                     </div>
 
                     <div class="form_field">
+                      <span class="text-note shipping_add_final_page"></span>
+                      <span class="text-note citi_state_zip_final_page"></span>
+                    </div>
+
+                    <div class="form_field">
                       <div class="text-field">
 
                         <select class="selectpicker custom_select final_page_payment_source_label">
                           <option value="" selected>PAYMENT SOURCE</option>
                         </select>
 
-                        <select class="selectpicker custom_select payment_method" name="payment_method" id="payment_method">
+                        <select class="selectpicker custom_select payment_method payment_method_finl_page_class" name="payment_method" id="payment_method">
                           <option>SELECT PAYMENT METHOD</option>
                           <option value="1">CREDIT CARD</option>
                           <option value="2">DEBIT CARD</option>
@@ -478,7 +487,8 @@
 
                         <button type="button" class="edit btn_effect edit_payment_method_final_page">Edit</button>
                       </div>
-                      <span class="text-note">CARD ENDING IN <b><span class="last_4_digit_card"></span></b></span>
+                      {{-- <span class="text-note">CARD ENDING IN <b><span class="last_4_digit_card"></span></b></span> --}}
+                      {{-- <span class="text-note payment_method_final_page"></span> --}}
                     </div>
 
                     <div class="form_field">
@@ -627,7 +637,7 @@
                     <div class="form_field">
                       <div class="text-field">
                         <select class="selectpicker custom_select" name="package" id="package3" required>
-                          <option value="">Select Package</option>
+                          <option value="">{{config('constants.package.default_drop_down_text')}}</option>
                           <option value="1">1 MONTH OF HYDRATION $250 ( 10 KITS )</option>
                           <option value="2">2 MONTH OF HYDRATION $500 ( 20 KITS )</option>
                           <option value="3">3 MONTH OF HYDRATION $750 ( 30 KITS )</option>
@@ -639,7 +649,7 @@
                     <div class="form_field">
                       <div class="text-field custom_select">
                         <select class="selectpicker" name="delivery_frequency" id="delivery_frequency3" required>
-                          <option value="">Delivery frequency</option>
+                          <option value="">{{config('constants.package.delivery_freq_text')}}</option>
                           <option value="1">EVERY SUNDAY</option>
                           <option value="2">EVERY MONDAY</option>
                         </select>

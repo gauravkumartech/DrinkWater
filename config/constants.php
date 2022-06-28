@@ -11,4 +11,9 @@ return [
         1 => 'EVERY SUNDAY',
         2 => 'EVERY MONDAY',
     ],
+
+    'package' => [
+        'default_drop_down_text' => "SELECT WELLNESS SOLUTION",
+        'delivery_freq_text' => 'SELECT DELIVERY FREQUENCY',
+    ]
 ];
