@@ -14,10 +14,41 @@
   <input type="hidden" value="{{url('/')}}" class="base_url">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+<style>
+  .loader{
+    background: #f1eeee91;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .loader img{
+    width: 100px;
+    animation: mover 1s infinite  alternate;
+  }
+  @-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
 
+  </style>
 </head>
 
-<img src="{{asset('images\loader.gif')}}" class="loader" style="width:100%;height:100%; display:none">
+
+
+<div class="loader" style="width:100%;height:100%; display:none">
+
+<img src="{{asset('images\drop.png')}}" />
+</div>
+
+
 
 <body class="body">
 
