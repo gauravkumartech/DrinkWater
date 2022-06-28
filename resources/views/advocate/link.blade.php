@@ -629,7 +629,6 @@
                       </div>
                     </div>
                   </div> -->
-                </div>
 
                 <div class="flex_row m_t_50">
 

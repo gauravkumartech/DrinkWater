@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('splash');
-// })->name('splash');
+Route::get('/', function () {
+    dd('test');
+    return view('splash');
+})->name('splash');
 
 // Route::get('/welcome', function () {
 //     return view('drinkWaterWelcome');
