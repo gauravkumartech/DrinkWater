@@ -37,6 +37,14 @@ braintree.dropin.create({
 
 $(document).ready(function () {
 
+  $('.shipping_address_final_page').prop('disabled',true).hide();
+  $('.shipping_address1_final_page').prop('disabled',true).hide();
+  $('.s_city_state_zip_final_page').prop('disabled',true).hide();
+
+  $('.shipping_add_final_page').show().text( $('.shipping_address_final_page').val() + ' ' + $('.shipping_address1_final_page').val() )
+  $('.citi_state_zip_final_page').show().text( $('.s_city_state_zip_final_page').val() )
+  $('.final_page_package_label').next(".dropdown-toggle").prop('disabled',true);
+  $('.payment_method_final_page').text( $('.payment_method_finl_page_class').children("option:selected").text() );
     // showLoader();     
     
     $(document).on("change", "#package1", function () {
@@ -388,13 +396,15 @@ $(document).ready(function () {
         $('.final_page_package_label').next(".dropdown-toggle").prop('disabled',true);
         
         if( $(this).text() == 'Edit' ){
-            $('#package5').next(".dropdown-toggle").show();
-            $('#package5').next(".dropdown-toggle").prop('disabled', false);
-            $(this).text('Save');
+          $('.final_page_package_label').hide();
+          $('#package5').next(".dropdown-toggle").show();
+          $('#package5').next(".dropdown-toggle").prop('disabled', false);
+          $(this).text('Save');
         }else{
-            $('#package5').next(".dropdown-toggle").hide();
-            $('#package5').next(".dropdown-toggle").prop('disabled', true);
-            $(this).text('Edit');
+          $('#package5').next(".dropdown-toggle").hide();
+          $('#package5').next(".dropdown-toggle").prop('disabled', true);
+          $('.final_page_package_label').show();
+          $(this).text('Edit');
         }
     })
 
@@ -403,12 +413,13 @@ $(document).ready(function () {
         $('.delivery_note_final_page').text($('#delivery_frequency5').children("option:selected").text());
         $('.final_page_delivery_freq_label').next(".dropdown-toggle").prop('disabled',true);
 
-
         if( $(this).text() == 'Edit' ){
+            $('.final_page_delivery_freq_label').hide();
             $('#delivery_frequency5').next(".dropdown-toggle").show();
             $('#delivery_frequency5').next(".dropdown-toggle").prop('disabled', false);
             $(this).text('Save');
         }else{
+            $('.final_page_delivery_freq_label').show();
             $('#delivery_frequency5').next(".dropdown-toggle").hide();
             $('#delivery_frequency5').next(".dropdown-toggle").prop('disabled', true);
             $(this).text('Edit');
@@ -416,15 +427,21 @@ $(document).ready(function () {
     })
 
     $('.edit_address_final_page').on('click', function(){
+        $('.shipping_add_final_page').text( $('.shipping_address_final_page').val() + ' ' + $('.shipping_address1_final_page').val() )
+        $('.citi_state_zip_final_page').text( $('.s_city_state_zip_final_page').val() )
+        $('.final_page_edit_address_label').next(".dropdown-toggle").prop('disabled',true);
+
         if( $(this).text() == 'Edit' ){
-            $('.shipping_address_final_page').prop('disabled',false);
-            $('.shipping_address1_final_page').prop('disabled',false);
-            $('.s_city_state_zip_final_page').prop('disabled',false);
+            $('.final_page_edit_address_label').hide();
+            $('.shipping_address_final_page').prop('disabled',false).show();
+            $('.shipping_address1_final_page').prop('disabled',false).show();
+            $('.s_city_state_zip_final_page').prop('disabled',false).show();
             $(this).text('Save');
         }else{
-            $('.shipping_address_final_page').prop('disabled',true);
-            $('.shipping_address1_final_page').prop('disabled',true);
-            $('.s_city_state_zip_final_page').prop('disabled',true);
+            $('.final_page_edit_address_label').show();
+            $('.shipping_address_final_page').prop('disabled',true).hide();
+            $('.shipping_address1_final_page').prop('disabled',true).hide();
+            $('.s_city_state_zip_final_page').prop('disabled',true).hide();
             $(this).text('Edit');
         }
     })
@@ -448,10 +465,12 @@ $(document).ready(function () {
         $('.final_page_payment_source_label').next(".dropdown-toggle").prop('disabled',true);
         
         if( $(this).text() == 'Edit' ){
+            $('.final_page_payment_source_label').hide();
             $('.payment_method').next(".dropdown-toggle").show();
             $('.payment_method').next(".dropdown-toggle").prop('disabled', false);
             $(this).text('Save');
         }else{
+            $('.final_page_payment_source_label').show();
             $('.payment_method').next(".dropdown-toggle").hide();
             $('.payment_method').next(".dropdown-toggle").prop('disabled', true);
             $(this).text('Edit');
