@@ -11,7 +11,6 @@ use App\Mail\OrderPlaced;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
-use PDF;
 
 class AdvocateController extends Controller
 {
@@ -61,6 +60,7 @@ class AdvocateController extends Controller
             ]);
 
             $orderId = Order::insertGetId([
+                'odr_id' => 'ordr_dw_' . time() . '_' . date('Y_m_d'),
                 'odr_first_name' => $request->first_name,
                 'odr_last_name' => $request->last_name,
                 'odr_email' => $request->email,
@@ -89,31 +89,35 @@ class AdvocateController extends Controller
             $accountSid = getenv("TWILIO_ACCOUNT_SID");
             $authToken = getenv("TWILIO_AUTH_TOKEN");
             $client = new Client($accountSid, $authToken);
+
+            $body = 'Hey ' .$orderDetail->odr_first_name .' '. $orderDetail->odr_last_name. '! Order Placed.'. 
+            'Thanks For Shopping! Click on link to view Receipt. 
+            ' . '<a href="'.url('orderDetail/'. $orderDetail->odr_id).'"> TRACK </a>';
+
             try
             {
                 $client->messages->create(
                     '+91'. $request->mobile,
                     array(
                         'from' => '+19784875912',
-                        'body' => 'Hey ' .$data->adv_first_name .' '. $data->adv_first_name. '! Order Placed. Thanks For Shopping!'
+                        'body' => $body
                     )
                 );
             }catch (Exception $e){
-                echo "Error: " . $e->getMessage();
+                dd( "Error: " . $e->getMessage() );
             } 
 
             return redirect()->back();
         }
     }
 
-    public function orderDetail()
+    public function orderDetail(Request $request)
     {
-        // return 
-        $orderDetail = Order::find(1);
+        $orderDetail = Order::where('odr_id', $request->order_id)->first();
 
         $advocateData = Advocate::where('adv_detail_access_token', $orderDetail->odr_adv_detail_access_token)->first();
 
-        return view('emails\order_placed', [
+        return view('emails\order_placed_new', [
             'advocateData' => $advocateData,
             'orderDetail' => $orderDetail
         ]);

@@ -14,7 +14,7 @@ function setDropDownvalue() {
 }
 
 
-$(document).ready(function(){
+$(document).ready(function() {
     $('#package5').next(".dropdown-toggle").hide();
     $('#delivery_frequency5').next(".dropdown-toggle").hide();
     $('#package5').next(".dropdown-toggle").prop('disabled', true);
@@ -22,25 +22,25 @@ $(document).ready(function(){
 
     localStorage.clear();
 
-    let time1 = setTimeout(function () {
+    let time1 = setTimeout(function() {
         $(".splash").hide();
         $(".welcome").show();
     }, string.timeout);
 
-    let time2 = setTimeout(function () {
+    let time2 = setTimeout(function() {
         $(".splash").hide();
         $(".welcome").hide();
         $(".main_content").show();
     }, string.timeout1);
 
-    $(".splash_link").click(function () {
+    $(".splash_link").click(function() {
         clearTimeout(time1);
         $(".splash").hide();
         $(".welcome").show();
         $(".main_content").hide();
     });
 
-    $(".welcome_link").click(function () {
+    $(".welcome_link").click(function() {
         clearTimeout(time2);
         $(".splash").hide();
         $(".welcome").hide();
@@ -48,12 +48,12 @@ $(document).ready(function(){
     });
 
 
-    $(".main_content_back").click(function () {
+    $(".main_content_back").click(function() {
         $(".splash").hide();
         $(".welcome").show();
         $(".main_content").hide();
 
-        setTimeout(function () {
+        setTimeout(function() {
             $(".splash").hide();
             $(".welcome").hide();
             $(".main_content").show();
