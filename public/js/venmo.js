@@ -94,6 +94,7 @@ braintree.client.create({
         });
     }
 
+
     function handleVenmoError(err) {
         if (err.code === 'VENMO_CANCELED') {
             console.log('App is not available or user aborted payment flow');
