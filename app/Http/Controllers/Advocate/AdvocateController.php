@@ -59,6 +59,18 @@ class AdvocateController extends Controller
                 'options' => [ 'submitForSettlement' => True ]
             ]);
 
+            // $result_venmo = $gateway->transaction()->sale([
+            //     'amount' => $amount,
+            //     'paymentMethodNonce' => $request->payment_method_nonce,
+            //     'options' => [
+            //         'submitForSettlement' => true,
+            //         'venmo' => [
+            //           'profileId' => '1953896702662410263'
+            //         ]
+            //     ],
+            //     'deviceData' => "deviceDataFromTheClient",
+            // ]);
+
             $orderId = Order::insertGetId([
                 'odr_id' => 'ordr_dw_' . time() . '_' . date('Y_m_d'),
                 'odr_first_name' => $request->first_name,
