@@ -111,6 +111,14 @@ input[type="tel"]{
     <div class="custom_container">
 
       <form id="basic-form" method="POST">
+
+        <button type="button" id="venmo-button" style="background:white;border-bottom: none;">
+          <img style="border-radius: 20px;" 
+            src="https://s2.r29static.com/bin/entry/1f8/0,0,2000,1050/x,80/1986150/image.jpg" 
+            height="50px" 
+            width="100px">
+        </button>
+        
         @csrf
         <input type="hidden" class="current_tab" value="step1_form">
 
@@ -899,7 +907,15 @@ input[type="tel"]{
 <script src="{{asset('js/show.js')}}"></script>
 <script src="{{asset('js/aos.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+{{-- <script src="https://js.braintreegateway.com/web/3.85.3/js/client.min.js"></script> --}}
+{{-- <script src="https://js.braintreegateway.com/web/3.85.3/js/venmo.min.js"></script> --}}
+{{-- <script src="https://js.braintreegateway.com/web/3.85.3/js/data-collector.min.js"></script> --}}
 
+<script src="https://js.braintreegateway.com/web/3.77.0/js/client.min.js"></script>
+<script src="https://js.braintreegateway.com/web/3.77.0/js/venmo.min.js"></script>
+<script src="https://js.braintreegateway.com/web/3.77.0/js/data-collector.min.js"></script>
+
+<script src="{{asset('js/venmo.js')}}"></script>
 
 
 <style>
